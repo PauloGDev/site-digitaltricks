@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { assets } from "../assets/assets";
 import { ArrowRight, Menu, X } from "lucide-react";
-import NeonButton from "./NeonButton";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,15 +10,19 @@ const Navbar = () => {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40);
+    const handleScroll = () => setScrolled(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
     { name: "Início", path: "/" },
     { name: "Sobre", path: "/sobre" },
-    { name: "E-commerces", path: "/ecommerce" },
+    { name: "E-commerce", path: "/ecommerce" },
     { name: "Websites", path: "/websites" },
     { name: "Design", path: "/design" },
   ];
@@ -28,146 +31,154 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
-      className={`fixed w-full z-50 backdrop-blur-xl transition-all duration-500 ${
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-black/70 shadow-[0_4px_30px_rgba(0,0,0,0.3)]"
+          ? "bg-black/78 backdrop-blur-xl border-b border-white/10"
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-6 py-3 md:px-10 md:py-4">
-        {/* Logo */}
-        <Link to="/" className="flex items-center gap-2">
-          <motion.img
-            src={assets.logo}
-            alt="Digital Tricks"
-            className="w-16 md:w-20"
-            whileHover={{ scale: 1.1 }}
-            transition={{ type: "spring", stiffness: 200 }}
-          />
-        </Link>
-
-        {/* Links Desktop */}
-        <div className="hidden md:flex items-center gap-8 lg:gap-10 text-gray-200 font-medium">
-          {navLinks.map((link, i) => (
-            <Link
-              key={i}
-              to={link.path}
-              className={`relative group text-sm tracking-wide transition-all ${
-                isActive(link.path)
-                  ? "text-[#7d8aff]"
-                  : "hover:text-white/90 text-gray-300"
-              }`}
-            >
-              {link.name}
-              <span
-                className={`absolute bottom-0 left-0 h-[2px] bg-[#7d8aff] transition-all duration-300 ${
-                  isActive(link.path) ? "w-full" : "w-0 group-hover:w-full"
-                }`}
-              />
-            </Link>
-          ))}
-
-          <a
-            href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <NeonButton
-              text="Contato"
-              href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
-              color="#5146D9"
-              icon={ArrowRight}
+      <div className="max-w-7xl mx-auto px-6 lg:px-20">
+        <div className="h-20 flex items-center justify-between">
+          {/* Logo */}
+          <Link to="/" className="flex items-center">
+            <img
+              src={assets.logo}
+              alt="Digital Tricks"
+              className="w-16 md:w-[74px] object-contain"
             />
-          </a>
-        </div>
+          </Link>
 
-        {/* Menu Mobile Button */}
-        <motion.button
-          whileTap={{ scale: 0.9 }}
-          onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Abrir menu"
-          className="md:hidden p-2 rounded-md bg-white/10 hover:bg-white/10 transition"
-        >
-          {menuOpen ? (
-            <X className="w-7 h-7 text-white" />
-          ) : (
-            <Menu className="w-7 h-7 text-white" />
-          )}
-        </motion.button>
-      </div>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {menuOpen && (
-          <motion.div
-            key="mobile-menu"
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.45, ease: "easeOut" }}
-            className="fixed top-0 right-0 w-full sm:w-[75%] h-screen 
-                       bg-[#0B0B16]
-                       border-l border-white/10 backdrop-blur-2xl
-                       flex flex-col items-center justify-center space-y-10
-                       text-white shadow-2xl z-[55]"
-          >
-            {/* Close Button */}
-            <motion.button
-              onClick={() => setMenuOpen(false)}
-              whileHover={{ rotate: 90 }}
-              transition={{ duration: 0.3 }}
-              className="absolute top-6 right-6 p-2 rounded-full bg-white/10 hover:bg-white/20 transition"
-            >
-              <X className="w-7 h-7 text-white" />
-            </motion.button>
-
-            {/* Links */}
-            {navLinks.map((link, i) => (
-              <motion.div
-                key={link.name}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1 }}
-              >
+          {/* Desktop */}
+          <div className="hidden md:flex items-center gap-8 lg:gap-10">
+            <div className="flex items-center gap-6 lg:gap-8">
+              {navLinks.map((link) => (
                 <Link
+                  key={link.path}
                   to={link.path}
-                  onClick={() => setMenuOpen(false)}
-                  className={`text-2xl font-semibold tracking-wide transition-all ${
+                  className={`relative text-sm tracking-[0.08em] transition-colors duration-300 ${
                     isActive(link.path)
-                      ? "text-[#7DF9FF] drop-shadow-[0_0_8px_rgba(125,249,255,0.8)]"
-                      : "text-white hover:text-[#7DF9FF]/80"
+                      ? "text-white"
+                      : "text-white/60 hover:text-white/90"
                   }`}
                 >
                   {link.name}
+                  <span
+                    className={`absolute -bottom-2 left-0 h-px bg-[#7B61FF] transition-all duration-300 ${
+                      isActive(link.path) ? "w-full" : "w-0"
+                    }`}
+                  />
                 </Link>
-              </motion.div>
-            ))}
+              ))}
+            </div>
 
-            {/* WhatsApp Button */}
-            <motion.a
-              href="https://wa.me/5585921743200"
+            <a
+              href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => setMenuOpen(false)}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="relative inline-flex items-center justify-center
-                         bg-gradient-to-r from-[#7DF9FF] to-[#7367F0]
-                         text-[#0B0B16] font-semibold px-10 py-3 rounded-full
-                         shadow-[0_0_25px_rgba(125,249,255,0.3)] hover:shadow-[0_0_40px_rgba(125,249,255,0.5)]
-                         transition-all duration-300"
+              className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-5 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
             >
-              <ArrowRight className="mr-2 w-5 h-5" />
               Contato
-            </motion.a>
+              <ArrowRight className="w-4 h-4" />
+            </a>
+          </div>
 
-            <p className="text-white/50 text-sm mt-8">
-              © 2025 Digital Tricks. Todos os direitos reservados.
-            </p>
-          </motion.div>
+          {/* Mobile button */}
+          <button
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label={menuOpen ? "Fechar menu" : "Abrir menu"}
+            className="md:hidden inline-flex items-center justify-center w-11 h-11 border border-white/10 bg-white/[0.03] text-white hover:bg-white/[0.06] transition-colors"
+          >
+            {menuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="md:hidden fixed inset-0 bg-black/70 backdrop-blur-sm"
+              onClick={() => setMenuOpen(false)}
+            />
+
+            <motion.div
+              initial={{ opacity: 0, x: "100%" }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: "100%" }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
+              className="md:hidden fixed top-0 right-0 h-screen w-full max-w-sm bg-[#050505] border-l border-white/10 z-[60]"
+            >
+              <div className="h-full flex flex-col">
+                <div className="h-20 px-6 flex items-center justify-between border-b border-white/10">
+                  <img
+                    src={assets.logo}
+                    alt="Digital Tricks"
+                    className="w-16 object-contain"
+                  />
+
+                  <button
+                    onClick={() => setMenuOpen(false)}
+                    aria-label="Fechar menu"
+                    className="inline-flex items-center justify-center w-11 h-11 border border-white/10 bg-white/[0.03] text-white hover:bg-white/[0.06] transition-colors"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                <div className="flex-1 px-6 py-10 flex flex-col justify-between">
+                  <div className="flex flex-col gap-6">
+                    {navLinks.map((link, i) => (
+                      <motion.div
+                        key={link.path}
+                        initial={{ opacity: 0, y: 12 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: i * 0.05 }}
+                      >
+                        <Link
+                          to={link.path}
+                          className={`block text-2xl tracking-tight transition-colors ${
+                            isActive(link.path)
+                              ? "text-white"
+                              : "text-white/65 hover:text-white"
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </div>
+
+                  <div className="pt-10 border-t border-white/10">
+                    <a
+                      href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-5 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
+                    >
+                      Falar com a Digital Tricks
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
+
+                    <p className="mt-6 text-sm text-white/30">
+                      Digital Tricks — presença digital com direção.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>

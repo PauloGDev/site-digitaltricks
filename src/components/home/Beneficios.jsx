@@ -1,89 +1,92 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { CheckCircle } from "lucide-react";
-import CountUp from "react-countup";
+
+const beneficios = [
+  {
+    numero: "250%",
+    titulo: "Potencial de crescimento",
+    desc: "Uma presença digital bem construída amplia percepção de valor, autoridade e capacidade de conversão.",
+  },
+  {
+    numero: "85%",
+    titulo: "Leads mais qualificados",
+    desc: "Estrutura, posicionamento e clareza visual ajudam a atrair contatos mais alinhados ao seu serviço.",
+  },
+  {
+    numero: "98%",
+    titulo: "Experiência mais sólida",
+    desc: "Interfaces claras e rápidas reforçam confiança e tornam a navegação mais eficiente em qualquer dispositivo.",
+  },
+  {
+    numero: "27 UF",
+    titulo: "Escala nacional",
+    desc: "Projetos pensados com estrutura profissional permitem expansão, consistência e alcance além do mercado local.",
+  },
+];
 
 const Beneficios = () => {
-  const beneficios = [
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 250,
-      titulo: "Aumento de Vendas",
-      desc: "Clientes que investem em um site profissional veem aumento médio de 250% nas vendas em 6 meses.",
-      gradient: "from-[#7B6EF6] to-[#5146D9]",
-      suffix: "%",
-    },
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 85,
-      titulo: "Mais Leads Qualificados",
-      desc: "Sites otimizados geram até 85% mais leads qualificados, acelerando o crescimento do seu negócio.",
-      gradient: "from-[#A5461E] to-[#CA46E5]",
-      suffix: "%",
-    },
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 98,
-      titulo: "Satisfação do Cliente",
-      desc: "Clientes relatam até 98% de satisfação com a experiência digital e facilidade de navegação.",
-      gradient: "from-[#1E9CA5] to-[#2F28AC]",
-      suffix: "%",
-    },
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 27,
-      titulo: "Presença Nacional",
-      desc: "Nossos sites permitem atuação em todos os estados do Brasil, alcançando novos públicos.",
-      gradient: "from-[#FF7E5F] to-[#FD3A69]",
-      suffix: "",
-    },
-  ];
-
   return (
-    <section id="beneficios" className="relative py-20 px-6 sm:px-12 overflow-hidden">
-      {/* Fundo com brilho suave */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1A1635] via-[#100E24] to-[#0B0918] opacity-95"></div>
-      <div className="absolute inset-0 -z-10 blur-3xl bg-gradient-to-tr from-[#7B6EF6]/20 via-[#2F28AC]/10 to-transparent"></div>
+    <section
+      id="beneficios"
+      className="relative py-28 md:py-36 border-t border-white/10 bg-black text-white"
+    >
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_bottom_right,rgba(123,97,255,0.10),transparent_28%)]" />
 
-      {/* Título */}
-      <motion.h2
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-16 text-gray-200"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, ease: "easeOut" }}
-        viewport={{ once: true }}
-      >
-        Resultados Reais que seu Negócio Pode Alcançar
-      </motion.h2>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+        <motion.div
+          initial={{ opacity: 0, y: 22 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20"
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Impacto
+            </span>
 
-      {/* Cards */}
-      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
-        {beneficios.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.2, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className={`bg-gradient-to-r ${item.gradient} rounded-2xl p-8 text-white shadow-[0_8px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_40px_rgba(255,255,255,0.2)] transition-all duration-500 text-center`}
-          >
-            <div className="flex justify-center mb-4 p-4 rounded-full bg-white/20 inline-block">
-              {item.icon}
-            </div>
-            <div className="text-3xl font-bold mb-2">
-              <CountUp
-                end={item.numero}
-                duration={2}
-                suffix={item.suffix}
-                enableScrollSpy
-                scrollSpyOnce
-              />
-            </div>
-            <h3 className="text-xl font-bold mb-2">{item.titulo}</h3>
-            <p className="text-white/90 text-sm leading-relaxed">{item.desc}</p>
-          </motion.div>
-        ))}
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95]">
+              Resultados que
+              <br />
+              fortalecem a
+              <span className="text-[#7B61FF]"> presença</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-7 flex items-end">
+            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+              Design, posicionamento e tecnologia deixam de ser apenas estética
+              quando passam a atuar como ativos reais de percepção, confiança e
+              crescimento.
+            </p>
+          </div>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-8 md:gap-10">
+          {beneficios.map((item, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="border-t border-white/10 pt-6"
+            >
+              <div className="text-4xl md:text-5xl font-semibold tracking-tight text-[#7B61FF]">
+                {item.numero}
+              </div>
+
+              <h3 className="mt-5 text-xl md:text-2xl font-medium text-white">
+                {item.titulo}
+              </h3>
+
+              <p className="mt-3 text-white/58 leading-relaxed text-sm md:text-base">
+                {item.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

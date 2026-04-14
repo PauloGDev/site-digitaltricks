@@ -1,79 +1,119 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, Code2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { assets } from "../assets/assets";
 
 const Hero = () => {
   return (
-    <section className="relative flex flex-col items-center justify-center text-center py-28 px-6 sm:px-12 overflow-hidden bg-[#0E0E12]">
-      {/* Fundo com gradiente leve */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1E9CA5]/10 via-[#2F28AC]/10 to-black" />
+    <section className="min-h-screen grid lg:grid-cols-2 bg-black text-white overflow-hidden">
 
-      {/* Manchas suaves otimizadas */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-[#1E9CA5]/15 blur-[100px] rounded-full -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-[#2F28AC]/15 blur-[100px] rounded-full translate-x-1/3 translate-y-1/3" />
+      {/* LADO VISUAL */}
+      <div className="relative bg-[#050505] overflow-hidden">
 
-      {/* Ícone decorativo flutuante (reduzido) */}
-      <motion.div
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 0.4, y: [0, -6, 0] }}
-        transition={{ repeat: Infinity, duration: 4 }}
-        className="absolute top-32 left-10"
-      >
-        <Sparkles className="w-8 h-8 text-[#1E9CA5]" />
-      </motion.div>
-
-      {/* Título principal */}
-      <motion.h1
-        initial={{ opacity: 0, y: 25 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.9, ease: "easeOut" }}
-        className="text-white font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight leading-tight"
-      >
-        DIGITAL <br />
-        <span className="bg-gradient-to-r from-[#1E9CA5] to-[#2F28AC] bg-clip-text text-transparent">
-          TRICKS
-        </span>
-      </motion.h1>
-
-      {/* Subtítulo */}
-      <motion.p
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.4, duration: 0.6 }}
-        className="mt-5 text-gray-300 text-sm sm:text-base lg:text-lg max-w-2xl"
-      >
-        Desenvolvimento de Sites • Identidade Visual & Branding • Manutenção de Sites & Servidores
-      </motion.p>
-
-      <motion.div
-        initial={{ opacity: 0.5, y: 40 }}
-        animate={{ opacity: 1, y: [0, -20, 0] }}
-        transition={{
-          duration: 4,          
-          ease: "easeInOut",     
-          repeat: Infinity,      
-          repeatType: "mirror",  
-        }}
-        className="mt-14 relative"
-      >
-        <img
-          src={assets.hero}
-          alt="Digital Tricks Hero"
-          className="w-[70vw] sm:w-[55vw] md:w-[45vw] lg:w-[35vw] mx-auto object-contain"
+        {/* Grid técnico */}
+        <div className="absolute inset-0 opacity-20 
+          bg-[linear-gradient(rgba(255,255,255,0.03)_1px,transparent_1px),
+              linear-gradient(90deg,rgba(255,255,255,0.03)_1px,transparent_1px)] 
+          bg-[size:40px_40px]"
         />
-      </motion.div>
 
-      {/* Selo inferior */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2 }}
-        className="mt-14 flex items-center gap-2 text-gray-400 text-sm"
-      >
-        <Code2 className="w-5 h-5 text-[#1E9CA5]" />
-        <span>+120 projetos digitais entregues com excelência</span>
-      </motion.div>
+        {/* Imagem */}
+        <motion.img
+          src={assets.hero}
+          alt="Digital Tricks Visual"
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 0.7 }}
+          transition={{ duration: 1.2 }}
+          className="w-full h-full object-cover"
+        />
+
+        {/* Overlay escuro */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/70 to-transparent" />
+
+        {/* Label técnico */}
+        <div className="absolute top-6 left-6 border border-white/10 bg-black/60 backdrop-blur-sm px-4 py-2 text-[10px] tracking-[0.25em] uppercase text-white/50">
+          Interface System
+        </div>
+
+      </div>
+
+      {/* LADO TEXTO */}
+      <div className="flex flex-col justify-center px-8 md:px-16 lg:px-20 py-20">
+
+        {/* Label topo */}
+        <motion.span
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-xs tracking-[0.25em] text-white/40 mb-6"
+        >
+          DIGITAL TRICKS — PLATFORM
+        </motion.span>
+
+        {/* HEADLINE PRINCIPAL */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          className="text-[42px] sm:text-[56px] md:text-[68px] lg:text-[80px] 
+                     leading-[0.92] font-semibold tracking-tight"
+        >
+          Construímos
+          <br />
+          experiências digitais
+          <br />
+          <span className="text-[#7B61FF]">
+            de alto impacto
+          </span>
+        </motion.h1>
+
+        {/* SUBTEXTO */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
+          className="mt-6 text-white/60 max-w-md text-base md:text-lg"
+        >
+          Sites, sistemas e plataformas que elevam a percepção da sua marca
+          e transformam presença digital em crescimento real.
+        </motion.p>
+
+        {/* CTAs */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="mt-10 flex flex-wrap gap-4"
+        >
+          <a
+            href="https://wa.me/5585921743200"
+            className="flex items-center gap-2 bg-[#7B61FF] px-6 py-3 text-sm font-medium 
+                       hover:opacity-90 transition-all duration-300"
+          >
+            Iniciar projeto
+            <ArrowRight size={16} />
+          </a>
+
+          <a
+            href="#portfolio"
+            className="px-6 py-3 text-sm border border-white/10 text-white/80 
+                       hover:bg-white/[0.04] transition-all duration-300"
+          >
+            Ver projetos
+          </a>
+        </motion.div>
+
+        {/* Métrica */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="mt-14 text-white/40 text-sm"
+        >
+          +120 projetos digitais entregues
+        </motion.div>
+
+      </div>
     </section>
   );
 };

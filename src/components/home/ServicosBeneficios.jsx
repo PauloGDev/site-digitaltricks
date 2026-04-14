@@ -1,177 +1,184 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, ShoppingBag, Palette, Search, CheckCircle, ArrowRight } from "lucide-react";
-import CountUp from "react-countup";
-import NeonButton from "../NeonButton";
+import {
+  Globe,
+  ShoppingBag,
+  Palette,
+  Search,
+  ArrowRight,
+} from "lucide-react";
 
 const ServicosBeneficios = () => {
   const servicos = [
     {
       nome: "Criação de Sites",
-      desc: "Transformamos sua ideia em um site moderno, responsivo e de alta performance, pronto para gerar resultados reais.",
-      icon: <Globe className="w-10 h-10 text-white" />,
+      desc: "Sites institucionais, landing pages e estruturas digitais com foco em clareza, presença e performance.",
+      icon: <Globe className="w-5 h-5" />,
     },
     {
       nome: "E-commerce",
-      desc: "Desenvolvemos lojas online completas, integradas a sistemas de pagamento, com design otimizado para conversão e fidelização.",
-      icon: <ShoppingBag className="w-10 h-10 text-white" />,
+      desc: "Lojas virtuais com foco em conversão, estabilidade, velocidade e escalabilidade comercial.",
+      icon: <ShoppingBag className="w-5 h-5" />,
     },
     {
       nome: "Design UX/UI",
-      desc: "Criamos interfaces intuitivas e elegantes, garantindo que seus usuários tenham a melhor experiência possível.",
-      icon: <Palette className="w-10 h-10 text-white" />,
+      desc: "Interfaces com estética premium, navegação intuitiva e percepção de valor mais alta.",
+      icon: <Palette className="w-5 h-5" />,
     },
     {
-      nome: "Otimização SEO",
-      desc: "Potencialize sua presença digital com estratégias avançadas de SEO e apareça no topo do Google.",
-      icon: <Search className="w-10 h-10 text-white" />,
+      nome: "SEO & Estrutura",
+      desc: "Base técnica e estratégica para visibilidade, indexação e crescimento orgânico consistente.",
+      icon: <Search className="w-5 h-5" />,
     },
   ];
 
-  const beneficios = [
+  const principais = [
     {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 250,
-      titulo: "Aumento de Vendas",
-      desc: "Clientes que investem em um site profissional veem aumento médio de 250% nas vendas em 6 meses.",
-      gradient: "from-[#7B6EF6] to-[#5146D9]",
-      suffix: "%",
+      title: "Websites de alto padrão",
+      desc: "Projetos institucionais e comerciais com direção visual forte, estrutura sólida e posicionamento premium.",
+      href: "/websites",
     },
     {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 85,
-      titulo: "Mais Leads Qualificados",
-      desc: "Sites otimizados geram até 85% mais leads qualificados, acelerando o crescimento do seu negócio.",
-      gradient: "from-[#A5461E] to-[#CA46E5]",
-      suffix: "%",
-    },
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 98,
-      titulo: "Satisfação do Cliente",
-      desc: "Clientes relatam até 98% de satisfação com a experiência digital e facilidade de navegação.",
-      gradient: "from-[#1E9CA5] to-[#2F28AC]",
-      suffix: "%",
-    },
-    {
-      icon: <CheckCircle className="w-10 h-10 text-white" />,
-      numero: 27,
-      titulo: "Presença Nacional",
-      desc: "Nossos sites permitem atuação em todos os estados do Brasil, alcançando novos públicos.",
-      gradient: "from-[#FF7E5F] to-[#FD3A69]",
-      suffix: "",
+      title: "Design orientado a resultado",
+      desc: "UX/UI projetado para unir clareza, confiança, experiência e maior valor percebido para a marca.",
+      href: "/design",
     },
   ];
 
   return (
-    <section className="relative py-24 px-6 sm:px-12 overflow-hidden">
-      {/* Fundo suave */}
-      <div className="absolute inset-0 -z-10 bg-gradient-to-b from-[#1A1635] via-[#100E24] to-[#0B0918] opacity-95" />
-      <div className="absolute inset-0 -z-10 blur-3xl bg-gradient-to-tr from-[#7B6EF6]/15 via-[#2F28AC]/10 to-transparent" />
+    <section className="relative py-28 md:py-36 border-t border-white/10 bg-[#050505] text-white">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_28%)]" />
 
-      {/* Título */}
-      <motion.h2
-        className="text-center text-4xl sm:text-5xl font-extrabold mb-14 text-gray-200"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <span className="text-white">Nossos Serviços</span>
-      </motion.h2>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+        {/* Header */}
+        <motion.div
+          className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Serviços
+            </span>
 
-      {/* Cards principais */}
-      <div className="max-w-5xl mx-auto grid sm:grid-cols-2 gap-8 mb-20">
-        {[
-          {
-            title: "Desenvolvimento de Websites",
-            desc: "Descubra como um site profissional pode transformar a presença digital da sua marca.",
-            href: "/websites",
-            gradient: "from-[#6C63FF] to-[#5146D9]",
-          },
-          {
-            title: "Design UX/UI",
-            desc: "Interfaces modernas e experiências envolventes que encantam e convertem.",
-            href: "/design",
-            gradient: "from-[#FD3A69] to-[#FF7E5F]",
-          },
-        ].map((item, i) => (
-          <motion.a
-            key={i}
-            href={item.href}
-            className={`group relative overflow-hidden rounded-2xl bg-gradient-to-r ${item.gradient} p-10 text-white shadow-lg transition-transform duration-500 hover:scale-[1.02]`}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-          >
-            <div className="absolute inset-0 opacity-15 bg-[radial-gradient(circle_at_center,white,transparent)]" />
-            <h3 className="text-2xl font-bold mb-3">{item.title}</h3>
-            <p className="text-white/90 mb-5">{item.desc}</p>
-            <div className="flex items-center gap-2 text-white/90 font-semibold">
-              Saiba mais <ArrowRight className="w-5 h-5" />
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[0.95] tracking-tight">
+              Soluções digitais
+              <br />
+              com direção e
+              <span className="text-[#7B61FF]"> precisão</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-7 flex items-end">
+            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+              Estruturamos experiências digitais para marcas que querem elevar
+              percepção, fortalecer presença e crescer com mais consistência.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Blocos principais */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-14 md:mb-16">
+          {principais.map((item, i) => (
+            <motion.a
+              key={i}
+              href={item.href}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="group relative border border-white/10 bg-[#0A0A0A] p-8 md:p-10 hover:border-white/20 hover:bg-[#0D0D0D] transition-all duration-300"
+            >
+              <div className="absolute inset-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_top_right,rgba(123,97,255,0.10),transparent_30%)]" />
+
+              <div className="relative">
+                <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                  Especialidade
+                </span>
+
+                <h3 className="mt-4 text-2xl md:text-3xl font-medium tracking-tight text-white">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 text-white/60 leading-relaxed max-w-xl">
+                  {item.desc}
+                </p>
+
+                <div className="mt-8 inline-flex items-center gap-2 text-sm text-[#7B61FF] group-hover:text-[#9B89FF] transition-colors">
+                  Saiba mais
+                  <ArrowRight className="w-4 h-4" />
+                </div>
+              </div>
+            </motion.a>
+          ))}
+        </div>
+
+        {/* Serviços */}
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
+          {servicos.map((servico, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
+              viewport={{ once: true }}
+              className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-all duration-300"
+            >
+              <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                {servico.icon}
+              </div>
+
+              <h3 className="text-xl font-medium tracking-tight text-white">
+                {servico.nome}
+              </h3>
+
+              <p className="mt-3 text-white/58 text-sm md:text-base leading-relaxed">
+                {servico.desc}
+              </p>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA final */}
+        <motion.div
+          className="mt-16 md:mt-20 border-t border-white/10 pt-10"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                Próximo passo
+              </span>
+
+              <h3 className="mt-4 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight text-white">
+                Transforme sua ideia em uma presença digital
+                <span className="text-[#7B61FF]"> mais forte.</span>
+              </h3>
+
+              <p className="mt-4 max-w-2xl text-white/60 leading-relaxed">
+                Projetos com clareza, estrutura e percepção premium para marcas
+                que querem crescer com mais autoridade.
+              </p>
             </div>
-          </motion.a>
-        ))}
-      </div>
 
-      {/* Serviços */}
-      <div className="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
-        {servicos.map((s, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className="bg-[#16161C] rounded-2xl p-8 text-white shadow-lg hover:shadow-xl transition-all duration-400 text-center"
-          >
-            <div className="flex justify-center mb-4 p-4 rounded-full bg-white/10">{s.icon}</div>
-            <h3 className="text-xl font-bold mb-2">{s.nome}</h3>
-            <p className="text-white/80 text-sm leading-relaxed">{s.desc}</p>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Benefícios */}
-      <div className="text-center max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {beneficios.map((b, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            className={`rounded-2xl p-8 text-white shadow-lg transition-transform duration-500 bg-gradient-to-r ${b.gradient} hover:scale-[1.03]`}
-          >
-            <div className="flex justify-center mb-4 p-4 rounded-full bg-white/15">{b.icon}</div>
-            <div className="text-3xl font-bold mb-2">
-              <CountUp end={b.numero} duration={2} suffix={b.suffix} enableScrollSpy scrollSpyOnce />
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <a
+                href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
+                className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
+              >
+                Iniciar projeto
+                <ArrowRight className="w-4 h-4" />
+              </a>
             </div>
-            <h3 className="text-xl font-bold mb-2">{b.titulo}</h3>
-            <p className="text-white/90 text-sm leading-relaxed">{b.desc}</p>
-          </motion.div>
-        ))}
+          </div>
+        </motion.div>
       </div>
-
-      {/* CTA final */}
-      <motion.div
-        className="text-center mt-20"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
-        <NeonButton
-          text="Transforme sua ideia em resultados"
-          href="https://wa.me/5585921743200?text=Ol%C3%A1!%20Gostaria%20de%20saber%20mais!"
-          color="#5146D9"
-          icon={ArrowRight}
-        />
-        <p className="text-gray-400 mt-4 max-w-md mx-auto">
-          Descubra como nossos serviços podem aumentar vendas, gerar leads e fortalecer sua presença digital.
-        </p>
-      </motion.div>
     </section>
   );
 };

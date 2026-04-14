@@ -1,123 +1,143 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Search, Palette, Code, Rocket } from "lucide-react";
+import { Search, Palette, Code, Rocket, ArrowRight } from "lucide-react";
+
+const etapas = [
+  {
+    icon: <Search className="w-5 h-5" />,
+    titulo: "Diagnóstico",
+    desc: "Analisamos contexto, mercado e objetivos para construir uma base estratégica antes de qualquer decisão visual ou técnica.",
+  },
+  {
+    icon: <Palette className="w-5 h-5" />,
+    titulo: "Design & Experiência",
+    desc: "Desenhamos interfaces com clareza, sofisticação e intenção, alinhando usabilidade, posicionamento e valor percebido.",
+  },
+  {
+    icon: <Code className="w-5 h-5" />,
+    titulo: "Desenvolvimento",
+    desc: "Transformamos direção criativa em estrutura digital rápida, responsiva, confiável e pronta para evoluir com consistência.",
+  },
+  {
+    icon: <Rocket className="w-5 h-5" />,
+    titulo: "Lançamento",
+    desc: "Publicamos com atenção a performance, estabilidade, SEO e acabamento para que a entrega tenha impacto desde o primeiro acesso.",
+  },
+];
 
 const Abordagem = () => {
-  const etapas = [
-    {
-      icon: <Search className="w-8 h-8 text-[#7DF9FF]" />,
-      titulo: "Diagnóstico",
-      desc: "Analisamos o seu negócio, público e metas para definir o plano digital mais eficiente.",
-    },
-    {
-      icon: <Palette className="w-8 h-8 text-[#7DF9FF]" />,
-      titulo: "Design & Experiência",
-      desc: "Criamos interfaces modernas, intuitivas e alinhadas à essência da sua marca.",
-    },
-    {
-      icon: <Code className="w-8 h-8 text-[#7DF9FF]" />,
-      titulo: "Desenvolvimento",
-      desc: "Transformamos o design em código otimizado, veloz e totalmente responsivo.",
-    },
-    {
-      icon: <Rocket className="w-8 h-8 text-[#7DF9FF]" />,
-      titulo: "Lançamento",
-      desc: "Publicamos com SEO otimizado, integrações completas e suporte pós-lançamento.",
-    },
-  ];
-
   return (
-    <section className="relative py-28 px-6 sm:px-12 bg-gradient-to-br from-[#0B0B16] via-[#141428] to-[#1A1A40] rounded-3xl overflow-hidden">
-      {/* Fundo animado com gradiente */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(125,249,255,0.15),transparent_60%)]"
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-      />
+    <section className="relative py-28 md:py-36 border-t border-white/10 bg-black text-white">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_30%)]" />
 
-      {/* Título */}
-      <motion.div
-        className="text-center mb-16 relative z-0"
-        initial={{ opacity: 0, y: -30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-      >
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+        {/* Header */}
         <motion.div
-          className="p-6 inline-block rounded-full bg-gradient-to-r from-[#7DF9FF] to-[#7367F0] shadow-lg shadow-[#7DF9FF]/30"
-          animate={{ rotate: [0, 10, -10, 0] }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20"
         >
-          <Rocket className="w-12 h-12 text-white" strokeWidth={2.5} />
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Método
+            </span>
+
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[0.95]">
+              Uma abordagem
+              <br />
+              guiada por
+              <span className="text-[#7B61FF]"> clareza</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-7 flex items-end">
+            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+              Cada projeto segue uma lógica precisa: entender, estruturar,
+              desenhar e executar com consistência. O objetivo não é apenas
+              entregar algo visualmente bom, mas construir uma presença digital
+              mais forte, confiável e valiosa.
+            </p>
+          </div>
         </motion.div>
 
-        <h2 className="text-5xl font-extrabold mt-6 text-white tracking-tight">
-          Nossa Abordagem
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-gray-300 text-lg">
-          De ideias a resultados reais — cada etapa é guiada por{" "}
-          <span className="text-[#7DF9FF] font-medium">inovação e estratégia</span>.
-        </p>
-      </motion.div>
+        {/* Etapas */}
+        <div className="border-t border-white/10">
+          {etapas.map((etapa, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.08 }}
+              viewport={{ once: true }}
+              className="grid md:grid-cols-12 gap-6 md:gap-8 py-8 md:py-10 border-b border-white/10 group"
+            >
+              {/* Número */}
+              <div className="md:col-span-2 flex items-start justify-between md:block">
+                <span className="text-sm tracking-[0.22em] text-white/28">
+                  0{i + 1}
+                </span>
+              </div>
 
-      {/* Etapas */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto relative z-0">
-        {etapas.map((etapa, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 60, scale: 0.9 }}
-            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-            transition={{ duration: 0.3, delay: i * 0.15 }}
-            viewport={{ once: true }}
-            whileHover={{
-              y: -8,
-              scale: 1.05,
-              boxShadow: "0px 15px 30px rgba(115,103,240,0.25)",
-            }}
-            className="bg-white/10 backdrop-blur-2xl border border-white/10 rounded-2xl p-8 text-gray-200 text-center transition-all duration-500"
-          >
-            <div className="mb-5 flex justify-center">{etapa.icon}</div>
-            <h3 className="text-xl font-semibold text-white mb-3">
-              {etapa.titulo}
-            </h3>
-            <p className="text-gray-300 text-sm leading-relaxed">
-              {etapa.desc}
-            </p>
-          </motion.div>
-        ))}
+              {/* Texto */}
+              <div className="md:col-span-7">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] group-hover:bg-[#7B61FF] group-hover:text-white group-hover:border-[#7B61FF] transition-all duration-300">
+                    {etapa.icon}
+                  </div>
+
+                  <h3 className="text-2xl md:text-3xl font-medium tracking-tight text-white">
+                    {etapa.titulo}
+                  </h3>
+                </div>
+
+                <p className="text-white/60 leading-relaxed max-w-2xl">
+                  {etapa.desc}
+                </p>
+              </div>
+
+              {/* Apoio lateral */}
+              <div className="md:col-span-3 flex md:justify-end md:items-start">
+                <span className="text-[11px] uppercase tracking-[0.24em] text-white/22 pt-2">
+                  Etapa estratégica
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Fechamento */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.45, delay: 0.15 }}
+          viewport={{ once: true }}
+          className="pt-12 md:pt-14"
+        >
+          <div className="grid lg:grid-cols-12 gap-8 items-start">
+            <div className="lg:col-span-8">
+              <p className="max-w-3xl text-white/55 text-base md:text-lg leading-relaxed">
+                Não seguimos um fluxo genérico. Cada entrega é estruturada para
+                unir percepção premium, direção estratégica e performance real,
+                com decisões pensadas para fortalecer a marca em cada ponto de
+                contato.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <a
+                href="#contato"
+                className="inline-flex items-center gap-2 text-sm text-[#7B61FF] hover:text-[#9B89FF] transition-colors"
+              >
+                Iniciar conversa
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
-
-      {/* Linha luminosa animada */}
-      <motion.div
-        className="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-[#7DF9FF] to-transparent"
-        animate={{
-          backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "linear",
-        }}
-      />
-
-      {/* Chamada final */}
-      <motion.div
-        className="text-center mt-20 relative z-0"
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.2 }}
-        viewport={{ once: true }}
-      >
-        <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-          Da análise ao lançamento, seguimos um processo{" "}
-          <span className="text-[#7DF9FF] font-medium">
-            criativo, técnico e de alta performance
-          </span>{" "}
-          para entregar resultados extraordinários.
-        </p>
-      </motion.div>
     </section>
   );
 };

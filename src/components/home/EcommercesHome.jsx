@@ -1,91 +1,84 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { ShoppingBag, Zap, ShieldCheck, TrendingUp, ArrowRight } from "lucide-react";
+import { TrendingUp, Zap, ShieldCheck, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const EcommercesHome = () => {
   const beneficios = [
     {
-      icon: <TrendingUp className="w-7 h-7 text-white" />,
-      title: "Mais Vendas",
-      desc: "Design estratégico e jornada de compra otimizada para transformar visitantes em clientes.",
+      icon: <TrendingUp size={18} />,
+      title: "Mais vendas",
+      desc: "Estrutura orientada à conversão, com foco em jornada e decisão.",
     },
     {
-      icon: <Zap className="w-7 h-7 text-white" />,
-      title: "Alta Performance",
-      desc: "Lojas rápidas e responsivas, prontas para gerar conversões em qualquer dispositivo.",
+      icon: <Zap size={18} />,
+      title: "Performance",
+      desc: "Carregamento rápido e experiência fluida em qualquer dispositivo.",
     },
     {
-      icon: <ShieldCheck className="w-7 h-7 text-white" />,
-      title: "Segurança Total",
-      desc: "SSL, antifraude e infraestrutura escalável para proteger seus dados e vendas.",
+      icon: <ShieldCheck size={18} />,
+      title: "Segurança",
+      desc: "Infraestrutura confiável com proteção e estabilidade.",
     },
   ];
 
   return (
-    <section className="relative py-20 px-6 sm:px-12 lg:px-20 bg-gradient-to-br from-[#0B0B16] via-[#14142E] to-[#1A1A40] rounded-3xl mt-20 mb-20 overflow-hidden">
-      {/* Fundo dinâmico */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(123,110,246,0.15),transparent_70%)]"
-        animate={{ backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"] }}
-        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-      />
+    <section className="py-32 border-t border-white/10 bg-[#050505] text-white">
 
-      {/* Cabeçalho */}
-      <motion.div
-        className="text-center mb-14 relative z-10"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="inline-block p-5 rounded-full bg-gradient-to-r from-[#7B6EF6] to-[#5146D9] shadow-lg shadow-[#7B6EF6]/30">
-          <ShoppingBag className="w-10 h-10 text-white" />
+      <div className="max-w-7xl mx-auto px-6 lg:px-20">
+
+        {/* HEADER */}
+        <div className="grid lg:grid-cols-12 gap-12 mb-20">
+
+          <div className="lg:col-span-5">
+            <span className="text-xs tracking-[0.25em] text-white/40">
+              E-COMMERCE
+            </span>
+
+            <h2 className="mt-6 text-5xl lg:text-6xl leading-[0.95]">
+              Lojas que
+              <br />
+              <span className="text-[#7B61FF]">vendem de verdade</span>
+            </h2>
+          </div>
+
+          <div className="lg:col-span-7 flex items-end">
+            <p className="text-white/60 max-w-xl">
+              Desenvolvemos e-commerces com foco em performance, escalabilidade
+              e conversão. Menos estética vazia, mais resultado real.
+            </p>
+          </div>
+
         </div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mt-6 leading-tight">
-          E-commerces que{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7B6EF6] to-[#5146D9]">
-            vendem de verdade
-          </span>
-        </h2>
-        <p className="mt-4 max-w-2xl mx-auto text-gray-300 text-lg">
-          Desenvolvemos lojas virtuais rápidas, seguras e otimizadas para escalar suas vendas.
-        </p>
-      </motion.div>
 
-      {/* Benefícios rápidos */}
-      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-14 relative z-10">
-        {beneficios.map((b, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-white shadow-[0_8px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_40px_rgba(123,110,246,0.3)] transition-all duration-500"
-          >
-            <div className="flex items-center gap-3 mb-3">
-              <div className="p-3 rounded-full bg-white/20">{b.icon}</div>
-              <h3 className="text-lg font-semibold">{b.title}</h3>
+        {/* BENEFÍCIOS */}
+        <div className="grid md:grid-cols-3 gap-12 mb-16">
+          {beneficios.map((b, i) => (
+            <div key={i} className="border-t border-white/10 pt-6">
+
+              <div className="text-[#7B61FF] mb-3">
+                {b.icon}
+              </div>
+
+              <h3 className="text-lg font-medium">{b.title}</h3>
+
+              <p className="text-white/60 mt-2 text-sm">
+                {b.desc}
+              </p>
+
             </div>
-            <p className="text-sm text-white/90">{b.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+          ))}
+        </div>
 
-      {/* CTA */}
-      <div className="text-center relative z-10">
+        {/* CTA */}
         <Link
           to="/ecommerce"
-          className="group inline-flex items-center gap-2 bg-gradient-to-r from-[#7B6EF6] to-[#5146D9] text-white font-semibold px-8 py-4 rounded-full shadow-lg shadow-[#7B6EF6]/40 hover:shadow-[#7B6EF6]/60 transition-all duration-500"
+          className="inline-flex items-center gap-2 border border-white/10 px-6 py-3 text-sm hover:bg-white/[0.05] transition"
         >
-          <span>Ver Planos e Detalhes</span>
-          <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          Ver planos
+          <ArrowRight size={16} />
         </Link>
-        <p className="mt-4 text-gray-400 text-sm">
-          Comece seu e-commerce profissional e venda todos os dias 🚀
-        </p>
+
       </div>
     </section>
   );

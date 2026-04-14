@@ -9,155 +9,226 @@ import {
   Smartphone,
   Zap,
   ArrowRight,
+  CheckCircle2,
 } from "lucide-react";
-import NeonButton from "../NeonButton";
 
 const LandingPage = ({ link }) => {
   const features = [
     {
-      icon: <Target className="w-8 h-8 text-white" />,
-      title: "Conversão Estratégica",
-      desc: "Cada elemento é pensado para levar o visitante direto à ação desejada.",
+      icon: <Target className="w-5 h-5" />,
+      title: "Conversão estratégica",
+      desc: "Cada seção é pensada para conduzir o visitante com mais clareza até a ação desejada.",
     },
     {
-      icon: <MousePointerClick className="w-8 h-8 text-white" />,
-      title: "UX & UI Otimizadas",
-      desc: "Design limpo, responsivo e focado em experiência do usuário.",
+      icon: <MousePointerClick className="w-5 h-5" />,
+      title: "UX/UI orientadas a resultado",
+      desc: "Layout, narrativa e interação desenhados para facilitar decisão e reduzir fricção.",
     },
     {
-      icon: <TrendingUp className="w-8 h-8 text-white" />,
-      title: "Alta Performance",
-      desc: "Carregamento rápido e estrutura leve para campanhas e anúncios.",
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: "Alta performance",
+      desc: "Estrutura leve e rápida para campanhas, tráfego pago e lançamentos com mais eficiência.",
     },
     {
-      icon: <Palette className="w-8 h-8 text-white" />,
-      title: "Design Personalizado",
-      desc: "Cores, tipografia e layout criados sob medida para sua marca.",
+      icon: <Palette className="w-5 h-5" />,
+      title: "Design personalizado",
+      desc: "Visual criado para refletir a identidade da marca e reforçar percepção de valor.",
     },
     {
-      icon: <Smartphone className="w-8 h-8 text-white" />,
-      title: "Mobile First",
-      desc: "Experiência perfeita em celulares, tablets e desktops.",
+      icon: <Smartphone className="w-5 h-5" />,
+      title: "Mobile first",
+      desc: "Experiência consistente em celular, tablet e desktop, sem perda de conversão.",
     },
     {
-      icon: <Zap className="w-8 h-8 text-white" />,
-      title: "Integrações e Automação",
-      desc: "Conecte sua landing a CRMs, formulários e campanhas de marketing.",
+      icon: <Zap className="w-5 h-5" />,
+      title: "Integrações e automação",
+      desc: "Captação conectada a CRM, formulários, pixels e ferramentas de marketing.",
     },
   ];
 
   const cases = [
     {
-      title: "Lançamentos Digitais",
-      desc: "Landing pages otimizadas para captação de leads e campanhas de alto volume.",
-      gradient: "from-[#7C3AED] to-[#5146D9]",
+      title: "Lançamentos digitais",
+      desc: "Captação de leads, validação de oferta e campanhas com foco em volume e conversão.",
     },
     {
-      title: "Produtos e Serviços",
-      desc: "Apresente seus produtos de forma direta, atrativa e eficaz.",
-      gradient: "from-[#5146D9] to-[#7B6EF6]",
+      title: "Produtos e serviços",
+      desc: "Apresentação objetiva para vender com mais clareza, valor percebido e intenção comercial.",
     },
     {
-      title: "Eventos e Cursos",
-      desc: "Páginas com foco em inscrições, conversão e engajamento instantâneo.",
-      gradient: "from-[#7B6EF6] to-[#5146D9]",
+      title: "Eventos e cursos",
+      desc: "Estruturas focadas em inscrição, urgência, argumento e engajamento direto.",
     },
   ];
 
+  const diferenciais = [
+    "Estrutura pensada para campanhas e anúncios",
+    "Copy, design e fluxo com foco comercial",
+    "Carregamento rápido e navegação objetiva",
+    "Integração com métricas e ferramentas de captação",
+    "Visual sob medida para a proposta da marca",
+    "Base preparada para tráfego pago e escala",
+  ];
+
   return (
-    <section className="relative py-28 px-6 sm:px-12 bg-gradient-to-br from-[#0B0B16] via-[#14142E] to-[#1A1A40] rounded-3xl overflow-hidden">
-      {/* Fundo animado */}
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_60%_40%,rgba(124,58,237,0.15),transparent_70%)]"
-        animate={{
-          backgroundPosition: ["0% 0%", "100% 100%", "0% 0%"],
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-      />
+    <section className="relative py-28 md:py-36 border border-white/10 bg-[#050505] text-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_28%)]" />
 
-      {/* Cabeçalho */}
-      <motion.div
-        className="text-center mb-16 relative z-0"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="p-6 inline-block rounded-full bg-gradient-to-r from-[#7C3AED] to-[#00C2FF] shadow-lg shadow-[#7C3AED]/40">
-          <Rocket className="w-12 h-12 text-white" strokeWidth={2.5} />
-        </div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold text-white mt-6">
-          Criação de{" "}
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7C3AED] to-[#00C2FF]">
-            Landing Pages
-          </span>
-        </h2>
-        <p className="mt-4 max-w-3xl mx-auto text-gray-300 text-lg leading-relaxed">
-          Converta visitantes em clientes com landing pages profissionais,
-          otimizadas para campanhas, lançamentos e captação de leads.
-        </p>
-      </motion.div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+        {/* Header */}
+        <motion.div
+          className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Landing Page
+            </span>
 
-      {/* Features */}
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl mx-auto relative z-0 mb-16">
-        {features.map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.05 }}
-            className="bg-white/10 backdrop-blur-xl border border-white/10 rounded-2xl p-8 text-white shadow-[0_8px_30px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_40px_rgba(124,58,237,0.3)] transition-all duration-500"
-          >
-            <div className="flex items-center gap-3 mb-4">
-              <div className="p-3 rounded-full bg-white/20">{item.icon}</div>
-              <h3 className="text-xl font-semibold">{item.title}</h3>
-            </div>
-            <p className="text-white/90 text-sm">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[0.95] tracking-tight">
+              Páginas pensadas
+              <br />
+              para converter com
+              <span className="text-[#7B61FF]"> mais clareza</span>
+            </h2>
+          </div>
 
-      {/* Casos de Uso */}
-      <div className="text-center mb-16 relative z-0">
-        <h3 className="text-3xl font-bold text-white mb-10">
-          Páginas que Geram Resultados
-        </h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {cases.map((c, i) => (
+          <div className="lg:col-span-7 flex items-end">
+            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+              Desenvolvemos landing pages profissionais para campanhas,
+              lançamentos e captação de leads, com foco em narrativa, estrutura,
+              velocidade e decisão.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 mb-20">
+          {features.map((item, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 22 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ duration: 0.45, delay: i * 0.05 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.05 }}
-              className={`bg-gradient-to-r ${c.gradient} rounded-2xl p-6 text-white shadow-lg shadow-black/30`}
+              className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
             >
-              <h4 className="text-xl font-semibold mb-3">{c.title}</h4>
-              <p className="text-white/90 text-sm">{c.desc}</p>
+              <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                {item.icon}
+              </div>
+
+              <h3 className="text-xl font-medium tracking-tight text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-white/58 leading-relaxed">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>
-      </div>
 
-      {/* CTA */}
-      <div className="text-center relative z-10">
-        <NeonButton
-          text="Quero Alavancar Minhas Vendas"
-          href="https://wa.me/5585921743200?text=Oi!%20Quero%20criar%20uma%20landing%20page%20para%20meu%20negócio%20ou%20campanha.%20Gostaria%20de%20ver%20os%20modelos%20e%20valores!"
-          color="#7C3AED"
-          icon={ArrowRight}
-      />
-      </div>
+        {/* Casos + diferenciais */}
+        <div className="grid lg:grid-cols-12 gap-10 mb-20">
+          <motion.div
+            className="lg:col-span-7"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            viewport={{ once: true }}
+          >
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Aplicações
+            </span>
 
-      {/* Efeito de brilho flutuante */}
-      <motion.div
-        className="absolute inset-0 bg-gradient-to-tr from-[#7C3AED]/10 via-[#00C2FF]/10 to-transparent blur-3xl opacity-40 z-0"
-        animate={{ opacity: [0.3, 0.6, 0.3] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-      />
+            <h3 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
+              Estruturas criadas para
+              <span className="text-[#7B61FF]"> diferentes objetivos</span>
+            </h3>
+
+            <div className="mt-8 grid md:grid-cols-3 gap-6">
+              {cases.map((c, i) => (
+                <div
+                  key={i}
+                  className="border border-white/10 bg-[#0A0A0A] p-6 hover:border-white/20 transition-colors duration-300"
+                >
+                  <h4 className="text-xl font-medium tracking-tight text-white">
+                    {c.title}
+                  </h4>
+                  <p className="mt-3 text-white/58 leading-relaxed text-sm">
+                    {c.desc}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          <motion.div
+            className="lg:col-span-5"
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55, delay: 0.08 }}
+            viewport={{ once: true }}
+          >
+            <div className="border border-white/10 bg-[#0A0A0A] p-8 md:p-10 h-full">
+              <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                Diferenciais
+              </span>
+
+              <div className="mt-6 space-y-4">
+                {diferenciais.map((item, i) => (
+                  <div key={i} className="flex items-start gap-3 border-t border-white/10 pt-4">
+                    <CheckCircle2 className="w-4 h-4 min-w-4 text-[#7B61FF] mt-1" />
+                    <p className="text-white/65 leading-relaxed">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          className="border-t border-white/10 pt-12 md:pt-14"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                Próximo passo
+              </span>
+
+              <h3 className="mt-4 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight text-white">
+                Lance uma página com
+                <span className="text-[#7B61FF]"> objetivo claro</span>
+              </h3>
+
+              <p className="mt-4 max-w-2xl text-white/60 leading-relaxed">
+                Uma landing page bem resolvida reduz ruído, melhora a leitura da
+                oferta e aumenta sua capacidade de transformar atenção em ação.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <a
+                href={link}
+                className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
+              >
+                Quero minha landing page
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </div>
     </section>
   );
 };

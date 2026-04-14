@@ -1,30 +1,35 @@
 import React, { useEffect, useState } from "react";
-import Title from "../components/Title";
-import { assets } from "../assets/assets";
 import { motion } from "framer-motion";
-import { Globe, LayoutGrid, ShoppingCart } from "lucide-react";
+import { Globe, LayoutGrid, ShoppingCart, ArrowRight } from "lucide-react";
+
+import { assets } from "../assets/assets";
 import Ecommerce from "../components/websites/Ecommerce";
 import LandingPage from "../components/websites/LandingPage";
 import Institucional from "../components/websites/Institucional";
 import HeroWebsites from "../components/websites/HeroWebsites";
 
 const Websites = () => {
-  const [activeSection, setActiveSection] = useState("ecommerce");
+  const [activeSection, setActiveSection] = useState("institucional");
 
-  // Detectar seção visível
   useEffect(() => {
     const sections = document.querySelectorAll("section[data-section]");
+
     const handleScroll = () => {
-      let current = "ecommerce";
+      let current = "institucional";
+
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop - 150;
+        const sectionTop = section.offsetTop - 180;
         if (window.scrollY >= sectionTop) {
           current = section.getAttribute("data-section");
         }
       });
+
       setActiveSection(current);
     };
+
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -36,126 +41,149 @@ const Websites = () => {
   };
 
   const sections = [
-    { id: "institucional", label: "Institucional", icon: <Globe size={22} /> },
-    { id: "landingpage", label: "Landing Page", icon: <LayoutGrid size={22} /> },
+    {
+      id: "institucional",
+      label: "Institucional",
+      icon: <Globe size={18} />,
+    },
+    {
+      id: "landingpage",
+      label: "Landing Page",
+      icon: <LayoutGrid size={18} />,
+    },
+  ];
+
+  const servicos = [
+    {
+      title: "Landing Pages",
+      desc: "Páginas enxutas e orientadas à conversão para campanhas, lançamentos e captação de leads.",
+      icon: <LayoutGrid size={22} />,
+      link: "https://wa.me/5585921743200?text=Oi!%20Quero%20criar%20uma%20landing%20page%20para%20meu%20negócio%20ou%20campanha.%20Gostaria%20de%20ver%20os%20modelos%20e%20valores!",
+    },
+    {
+      title: "Sites Institucionais",
+      desc: "Estruturas profissionais para apresentar a marca com clareza, autoridade e presença digital sólida.",
+      icon: <Globe size={22} />,
+      link: "https://wa.me/5585921743200?text=Olá!%20Tenho%20interesse%20em%20criar%20um%20site%20institucional%20para%20minha%20empresa.%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20e%20valores.%20Pode%20me%20ajudar?",
+    },
+    {
+      title: "E-commerce",
+      desc: "Lojas virtuais com foco em performance, conversão e estrutura comercial preparada para crescer.",
+      icon: <ShoppingCart size={22} />,
+      link: "/ecommerce",
+    },
+  ];
+
+  const faqItems = [
+    {
+      q: "Qual tipo de site faz mais sentido para minha empresa?",
+      a: "Depende do objetivo. Sites institucionais reforçam presença e autoridade, landing pages são ideais para campanhas e captação, e e-commerces são voltados para operação de vendas online.",
+    },
+    {
+      q: "Quanto tempo leva para desenvolver um website?",
+      a: "O prazo varia conforme a complexidade. Projetos menores costumam levar de 2 a 4 semanas, enquanto estruturas mais robustas podem demandar mais tempo.",
+    },
+    {
+      q: "O site será responsivo?",
+      a: "Sim. Todos os projetos são desenvolvidos para funcionar bem em desktop, tablet e smartphone.",
+    },
+    {
+      q: "Vocês oferecem manutenção?",
+      a: "Sim. Há opções de continuidade com suporte, ajustes, manutenção e evolução da estrutura digital.",
+    },
   ];
 
   return (
-    <div className="bg-[#121212] text-white relative overflow-hidden">
-      {/* Hero Section */}
+    <div className="bg-black text-white overflow-hidden">
       <HeroWebsites assets={assets} />
 
-      <div className="relative flex justify-center">
-        {/* Sidebar grande (visível apenas em telas grandes) */}
-        <div className="hidden lg:flex flex-col fixed left-6 top-1/2 -translate-y-1/2 z-50 gap-5">
-          {sections.map((item, index) => {
-            // Lista de gradientes (adicione ou altere conforme quiser)
-            const gradients = [
-              "from-[#3B82F6] to-[#7367F0]", // Ciano
-              "from-[#7B6EF6] to-[#5146D9]", // Roxo
-            ];
+      <div className="relative">
+        <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.08),transparent_24%)]" />
 
-            // Define gradiente baseado no índice
-            const gradient = gradients[index % gradients.length];
-
-            return (
-              <motion.button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                whileHover={{ scale: 1.1 }}
-                className={`flex items-center gap-2 px-4 py-2 rounded-full font-semibold 
-                  transition-all duration-300 backdrop-blur-xl border border-white/10
-                  ${
-                    activeSection === item.id
-                      ? `bg-gradient-to-r ${gradient} text-white shadow-lg shadow-white/20`
-                      : "bg-white/10 text-gray-300 hover:bg-white/20"
-                  }`}
-              >
-                {item.icon}
-                {item.label}
-              </motion.button>
-            );
-          })}
+        {/* Navegação lateral */}
+        <div className="hidden xl:flex flex-col fixed left-6 top-1/2 -translate-y-1/2 z-40 gap-3">
+          {sections.map((item) => (
+            <button
+              key={item.id}
+              onClick={() => scrollToSection(item.id)}
+              className={`inline-flex items-center gap-2 px-4 py-3 text-sm border transition-all duration-300 ${
+                activeSection === item.id
+                  ? "border-[#7B61FF] bg-[#7B61FF] text-white"
+                  : "border-white/10 bg-black/60 text-white/65 hover:bg-white/[0.04] hover:text-white"
+              }`}
+            >
+              {item.icon}
+              {item.label}
+            </button>
+          ))}
         </div>
 
-
-        {/* Conteúdo centralizado */}
-        <div className="w-full max-w-7xl px-6 sm:px-10 lg:px-16 xl:px-20 py-24 space-y-32">
-          {/* Serviços aprimorados */}
+        <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-16 xl:px-20 py-24 md:py-28 space-y-28 md:space-y-32">
+          {/* Introdução */}
           <section
             id="inicio"
-            className="relative text-center flex flex-col items-center justify-center"
+            className="border-t border-white/10 pt-14 md:pt-16"
           >
-            <Title text1="Nossos Serviços de" text2="Desenvolvimento Web" />
+            <motion.div
+              className="grid lg:grid-cols-12 gap-10 mb-12 md:mb-14"
+              initial={{ opacity: 0, y: 18 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.55 }}
+              viewport={{ once: true }}
+            >
+              <div className="lg:col-span-5">
+                <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  <span className="w-8 h-px bg-[#7B61FF]" />
+                  Websites
+                </span>
 
-            <div className="mt-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-10 max-w-6xl">
-              {[
-                {
-                  title: "Landing Pages",
-                  desc: "Páginas modernas, rápidas e otimizadas para conversão.",
-                  icon: <LayoutGrid size={48} strokeWidth={1.5} />,
-                  gradient:
-                    "from-[#FF6E5A] via-[#FF9966] to-[#FFB677]",
-                  link: "https://wa.me/5585921743200?text=Oi!%20Quero%20criar%20uma%20landing%20page%20para%20meu%20negócio%20ou%20campanha.%20Gostaria%20de%20ver%20os%20modelos%20e%20valores!",
-                },
-                {
-                  title: "Sites Institucionais",
-                  desc: "Soluções profissionais para presença digital completa.",
-                  icon: <Globe size={48} strokeWidth={1.5} />,
-                  gradient:
-                    "from-[#3F51B5] via-[#5A55AE] to-[#7C4DFF]",
-                  link: "https://wa.me/5585921743200?text=Olá!%20Tenho%20interesse%20em%20criar%20um%20site%20institucional%20para%20minha%20empresa.%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20e%20valores.%20Pode%20me%20ajudar?",
-                },
-                {
-                  title: "E-commerce",
-                  desc: "Monte sua loja virtual com design personalizado e seguro.",
-                  icon: <ShoppingCart size={48} strokeWidth={1.5} />,
-                  gradient:
-                    "from-[#8E2DE2] via-[#4A00E0] to-[#6A00FF]",
-                  link: "/ecommerce",
-                },
-              ].map((service, i) => (
+                <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[0.95] tracking-tight">
+                  Estruturas digitais
+                  <br />
+                  com clareza e
+                  <span className="text-[#7B61FF]"> posicionamento</span>
+                </h1>
+              </div>
+
+              <div className="lg:col-span-7 flex items-end">
+                <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+                  Desenvolvemos websites pensados para presença, performance e
+                  valor percebido. Cada formato atende um objetivo específico,
+                  com direção visual consistente e estrutura comercial clara.
+                </p>
+              </div>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+              {servicos.map((service, i) => (
                 <motion.div
                   key={i}
-                  initial={{ opacity: 0, y: 40 }}
+                  initial={{ opacity: 0, y: 22 }}
                   whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.45, delay: i * 0.06 }}
                   viewport={{ once: true }}
-                  transition={{ duration: 0.6, delay: i * 0.15 }}
-                  whileHover={{ scale: 1.05 }}
-                  className="relative group rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500"
+                  className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
                 >
-                  {/* Fundo com gradiente + vidro */}
-                  <div
-                    className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-80 blur-3xl`}
-                  ></div>
+                  <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                    {service.icon}
+                  </div>
 
-                  <div className="relative z-10 flex flex-col items-center text-center p-10 backdrop-blur-2xl bg-white/10 border border-white/20 rounded-3xl">
-                    <motion.div
-                      whileHover={{ rotate: 8, scale: 1.2 }}
-                      transition={{ type: "spring", stiffness: 300 }}
-                      className="text-white mb-6 drop-shadow-[0_0_10px_rgba(255,255,255,0.4)]"
-                    >
-                      {service.icon}
-                    </motion.div>
+                  <h2 className="text-xl md:text-2xl font-medium tracking-tight text-white">
+                    {service.title}
+                  </h2>
 
-                    <h2 className="text-white font-extrabold text-2xl mb-3 tracking-wide">
-                      {service.title}
-                    </h2>
+                  <p className="mt-3 text-white/58 leading-relaxed">
+                    {service.desc}
+                  </p>
 
-                    <p className="text-white/90 text-sm md:text-base mb-6 leading-relaxed">
-                      {service.desc}
-                    </p>
-
-                    <motion.a
+                  <div className="mt-8">
+                    <a
                       href={service.link}
-                      whileHover={{
-                        scale: 1.05,
-                        boxShadow: "0 0 25px rgba(255,255,255,0.4)",
-                      }}
-                      className="inline-block px-8 py-3 font-semibold text-white border-2 border-white/80 rounded-full bg-white/10 hover:bg-white hover:text-black transition-all duration-300"
+                      className="inline-flex items-center gap-2 text-sm text-[#7B61FF] hover:text-[#9B89FF] transition-colors"
                     >
-                      Fazer Orçamento →
-                    </motion.a>
+                      Fazer orçamento
+                      <ArrowRight className="w-4 h-4" />
+                    </a>
                   </div>
                 </motion.div>
               ))}
@@ -163,9 +191,8 @@ const Websites = () => {
           </section>
 
           <section id="institucional" data-section="institucional">
-          <Institucional link="https://wa.me/5585921743200?text=Olá!%20Tenho%20interesse%20em%20criar%20um%20site%20institucional%20para%20minha%20empresa.%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20e%20valores.%20Pode%20me%20ajudar?" />
-         </section>
-
+            <Institucional link="https://wa.me/5585921743200?text=Olá!%20Tenho%20interesse%20em%20criar%20um%20site%20institucional%20para%20minha%20empresa.%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20e%20valores.%20Pode%20me%20ajudar?" />
+          </section>
 
           <section id="landingpage" data-section="landingpage">
             <LandingPage link="https://wa.me/5585921743200?text=Oi!%20Quero%20criar%20uma%20landing%20page%20para%20meu%20negócio%20ou%20campanha.%20Gostaria%20de%20ver%20os%20modelos%20e%20valores!" />
@@ -173,75 +200,49 @@ const Websites = () => {
 
           {/* FAQ */}
           <motion.section
-            className="py-20 text-center"
-            initial={{ opacity: 0, y: 30 }}
+            className="border-t border-white/10 pt-16 md:pt-20"
+            initial={{ opacity: 0, y: 18 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.55 }}
             viewport={{ once: true }}
           >
-            <div className="max-w-6xl mx-auto px-4 space-y-12">
-              <div>
-                <h2 className="text-4xl lg:text-5xl font-extrabold text-white mb-2">
-                  FAQ - Websites
+            <div className="grid lg:grid-cols-12 gap-10 mb-12">
+              <div className="lg:col-span-5">
+                <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                  <span className="w-8 h-px bg-[#7B61FF]" />
+                  FAQ
+                </span>
+
+                <h2 className="mt-6 text-4xl md:text-5xl font-semibold leading-[0.95] tracking-tight">
+                  Perguntas
+                  <br />
+                  frequentes
                 </h2>
-                <p className="text-gray-400 text-lg lg:text-xl">
-                  Perguntas frequentes sobre desenvolvimento de sites
-                </p>
               </div>
 
-              <div className="space-y-4 text-left">
-                {[
-                  {
-                    q: "Qual é o tipo de site mais indicado para minha empresa?",
-                    a: "Depende do objetivo: institucionais para presença digital, landing pages para campanhas e e-commerces para vendas.",
-                  },
-                  {
-                    q: "Quanto tempo leva para criar um website?",
-                    a: "Projetos simples levam de 2 a 4 semanas, enquanto e-commerces podem levar até 8 semanas.",
-                  },
-                  {
-                    q: "O site será responsivo?",
-                    a: "Sim! Todos os websites são totalmente responsivos para dispositivos móveis e desktops.",
-                  },
-                  {
-                    q: "Vocês oferecem manutenção e suporte?",
-                    a: "Sim! Oferecemos planos de manutenção contínuos com atualizações e suporte técnico.",
-                  },
-                ].map((item, i) => (
-                  <details
-                    key={i}
-                    className="group bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl p-6 cursor-pointer transition-all duration-300 hover:bg-white/10"
-                  >
-                    <summary className="flex justify-between items-center font-semibold text-white text-lg group-open:text-[#7B6EF6]">
-                      {item.q}
-                      <span className="ml-4 transform transition-transform duration-300 group-open:rotate-180">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          className="w-6 h-6"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      </span>
-                    </summary>
-                    <motion.p
-                      className="mt-4 text-gray-300 text-base leading-relaxed"
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      {item.a}
-                    </motion.p>
-                  </details>
-                ))}
+              <div className="lg:col-span-7 flex items-end">
+                <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+                  Respostas diretas para as dúvidas mais comuns sobre criação de
+                  sites, estrutura, prazo e manutenção.
+                </p>
               </div>
+            </div>
+
+            <div className="max-w-4xl divide-y divide-white/10">
+              {faqItems.map((item, i) => (
+                <details key={i} className="py-6 group">
+                  <summary className="flex justify-between items-center cursor-pointer text-lg text-white">
+                    {item.q}
+                    <span className="text-white/35 transition-transform duration-300 group-open:rotate-45">
+                      +
+                    </span>
+                  </summary>
+
+                  <p className="mt-4 max-w-3xl text-white/58 leading-relaxed">
+                    {item.a}
+                  </p>
+                </details>
+              ))}
             </div>
           </motion.section>
         </div>

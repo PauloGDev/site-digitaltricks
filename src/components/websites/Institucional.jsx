@@ -1,89 +1,213 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Globe, Zap, TrendingUp, ShieldCheck, Users, Briefcase, Star, ArrowRight } from "lucide-react";
-import NeonButton from "../NeonButton";
+import {
+  Globe,
+  Zap,
+  TrendingUp,
+  ShieldCheck,
+  Users,
+  Briefcase,
+  Star,
+  ArrowRight,
+} from "lucide-react";
 
 const Institucional = ({ link }) => {
   const features = [
-    { icon: <Globe className="w-8 h-8 text-[#7DF9FF]" />, title: "Presença Digital Profissional", desc: "Mostre sua empresa de forma completa e confiável." },
-    { icon: <Zap className="w-8 h-8 text-[#7DF9FF]" />, title: "Responsivo e Moderno", desc: "Design adaptável e fluido em qualquer dispositivo." },
-    { icon: <TrendingUp className="w-8 h-8 text-[#7DF9FF]" />, title: "SEO Inicial", desc: "Estrutura otimizada para motores de busca." },
-    { icon: <ShieldCheck className="w-8 h-8 text-[#7DF9FF]" />, title: "Segurança e Confiabilidade", desc: "Proteção SSL e performance consistente." },
+    {
+      icon: <Globe className="w-5 h-5" />,
+      title: "Presença digital profissional",
+      desc: "Apresente sua empresa com clareza, credibilidade e uma estrutura visual mais sólida.",
+    },
+    {
+      icon: <Zap className="w-5 h-5" />,
+      title: "Responsivo e contemporâneo",
+      desc: "Experiência consistente em desktop, tablet e smartphone, com navegação fluida.",
+    },
+    {
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: "Base para crescimento",
+      desc: "Estrutura preparada para posicionamento, tráfego, visibilidade e evolução digital.",
+    },
+    {
+      icon: <ShieldCheck className="w-5 h-5" />,
+      title: "Segurança e confiabilidade",
+      desc: "Projeto com base técnica estável, SSL e foco em confiança para a marca.",
+    },
   ];
 
   const clients = [
-    { icon: <Users className="w-8 h-8 text-white" />, title: "Pequenas e médias empresas", desc: "Fortaleça sua presença online com um site profissional.", gradient: "from-[#2F28AC] to-[#7367F0]" },
-    { icon: <Briefcase className="w-8 h-8 text-white" />, title: "Consultorias e escritórios", desc: "Transmita confiança com uma presença sólida e moderna.", gradient: "from-[#7367F0] to-[#2F28AC]" },
-    { icon: <Star className="w-8 h-8 text-white" />, title: "Marcas em crescimento", desc: "Fortaleça sua autoridade com um site de alto impacto visual.", gradient: "from-[#7367F0] to-[#5146D9]" },
+    {
+      icon: <Users className="w-5 h-5" />,
+      title: "Pequenas e médias empresas",
+      desc: "Para negócios que precisam fortalecer presença, profissionalismo e clareza institucional.",
+    },
+    {
+      icon: <Briefcase className="w-5 h-5" />,
+      title: "Consultorias e escritórios",
+      desc: "Ideal para quem precisa transmitir confiança, organização e autoridade desde o primeiro contato.",
+    },
+    {
+      icon: <Star className="w-5 h-5" />,
+      title: "Marcas em crescimento",
+      desc: "Uma estrutura digital mais forte para marcas que estão elevando seu posicionamento no mercado.",
+    },
   ];
 
   return (
-    <section className="relative py-28 px-6 sm:px-12 bg-gradient-to-br from-[#0B0B16] via-[#14142E] to-[#1A1A40] rounded-3xl overflow-hidden">
-      <motion.div
-        className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(125,249,255,0.08),transparent_70%)]"
-        animate={{ opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      />
+    <section className="relative py-28 md:py-36 border border-white/10 bg-[#050505] text-white overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_28%)]" />
 
-      <motion.div className="text-center mb-16 relative z-0"
-        initial={{ opacity: 0, y: -20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-      >
-        <div className="p-6 inline-block rounded-full bg-gradient-to-r from-[#7DF9FF] to-[#7367F0] shadow-lg shadow-[#7DF9FF]/40">
-          <Globe className="w-12 h-12 text-white" strokeWidth={2.5} />
-        </div>
-        <h2 className="text-4xl sm:text-5xl font-extrabold mt-6 text-white">
-          Sites <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#7DF9FF] to-[#7367F0]">Institucionais</span>
-        </h2>
-        <p className="mt-4 max-w-3xl mx-auto text-gray-300 text-lg">
-          Fortaleça sua marca com um site moderno, seguro e otimizado — feito para gerar confiança e destaque online.
-        </p>
-      </motion.div>
+      <div className="relative max-w-7xl mx-auto px-6 lg:px-20">
+        {/* Header */}
+        <motion.div
+          className="grid lg:grid-cols-12 gap-10 mb-16 md:mb-20"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="lg:col-span-5">
+            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+              <span className="w-8 h-px bg-[#7B61FF]" />
+              Institucional
+            </span>
 
-      <div className="grid md:grid-cols-2 gap-10 max-w-6xl mx-auto mb-20 relative z-0">
-        {features.map((item, i) => (
-          <motion.div key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: i * 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ scale: 1.04 }}
-            className="bg-white/10 border border-white/10 rounded-2xl p-8 text-gray-200 shadow-[0_8px_30px_rgba(0,0,0,0.2)] hover:shadow-[0_8px_40px_rgba(125,249,255,0.3)] transition-all duration-500"
-          >
-            <div className="flex items-center gap-3 mb-4">{item.icon}<h3 className="text-xl font-semibold text-white">{item.title}</h3></div>
-            <p className="text-gray-300 text-sm">{item.desc}</p>
-          </motion.div>
-        ))}
-      </div>
+            <h2 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[0.95] tracking-tight">
+              Sites para marcas
+              <br />
+              que precisam de
+              <span className="text-[#7B61FF]"> presença real</span>
+            </h2>
+          </div>
 
-      <div className="text-center mb-12 relative z-0">
-        <h3 className="text-3xl font-bold text-white mb-10">Clientes Ideais</h3>
-        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-          {clients.map((c, i) => (
+          <div className="lg:col-span-7 flex items-end">
+            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
+              Estruturas institucionais pensadas para apresentar a marca com mais
+              clareza, confiança e valor percebido. O objetivo não é apenas estar
+              online, mas comunicar com mais força e consistência.
+            </p>
+          </div>
+        </motion.div>
+
+        {/* Features */}
+        <div className="grid md:grid-cols-2 gap-6 md:gap-8 mb-20">
+          {features.map((item, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.05 }}
-              className={`bg-gradient-to-r ${c.gradient} rounded-2xl p-6 text-white shadow-lg shadow-black/30`}
+              initial={{ opacity: 0, y: 22 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: i * 0.06 }}
+              viewport={{ once: true }}
+              className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-3 rounded-full bg-white/20">{c.icon}</div>
-                <h4 className="text-lg font-semibold">{c.title}</h4>
+              <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                {item.icon}
               </div>
-              <p className="text-white/90 text-sm">{c.desc}</p>
+
+              <h3 className="text-xl md:text-2xl font-medium tracking-tight text-white">
+                {item.title}
+              </h3>
+
+              <p className="mt-3 text-white/58 leading-relaxed">
+                {item.desc}
+              </p>
             </motion.div>
           ))}
         </div>
-      </div>
 
-      <div className="text-center relative z-0">
-        <NeonButton
-          text="Quero Meu Site Institucional"
-          href="https://wa.me/5585921743200?text=Olá!%20Tenho%20interesse%20em%20criar%20um%20site%20institucional%20para%20minha%20empresa.%20Gostaria%20de%20saber%20mais%20sobre%20os%20planos%20e%20valores.%20Pode%20me%20ajudar?"
-          color="#7367F0"
-          icon={ArrowRight}
-      />
+        {/* Clientes ideais */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 pt-12 md:pt-14"
+        >
+          <div className="grid lg:grid-cols-12 gap-10 mb-12">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <span className="w-8 h-px bg-[#7B61FF]" />
+                Perfil ideal
+              </span>
+
+              <h3 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
+                Para marcas que precisam
+                <span className="text-[#7B61FF]"> comunicar melhor</span>
+              </h3>
+            </div>
+
+            <div className="lg:col-span-7 flex items-end">
+              <p className="max-w-2xl text-white/60 leading-relaxed">
+                Um site institucional faz mais sentido quando a empresa precisa
+                reforçar autoridade, organizar sua apresentação e gerar mais
+                confiança no ambiente digital.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {clients.map((c, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                viewport={{ once: true }}
+                className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
+              >
+                <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                  {c.icon}
+                </div>
+
+                <h4 className="text-xl font-medium tracking-tight text-white">
+                  {c.title}
+                </h4>
+
+                <p className="mt-3 text-white/58 leading-relaxed">
+                  {c.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+          className="border-t border-white/10 pt-12 md:pt-14 mt-16 md:mt-20"
+        >
+          <div className="grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8">
+              <span className="text-[11px] uppercase tracking-[0.24em] text-white/35">
+                Próximo passo
+              </span>
+
+              <h3 className="mt-4 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight text-white">
+                Estruture uma presença digital
+                <span className="text-[#7B61FF]"> mais confiável</span>
+              </h3>
+
+              <p className="mt-4 max-w-2xl text-white/60 leading-relaxed">
+                Um site institucional bem resolvido ajuda sua marca a se
+                apresentar melhor, transmitir profissionalismo e consolidar sua
+                presença online com mais clareza.
+              </p>
+            </div>
+
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <a
+                href={link}
+                className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
+              >
+                Quero meu site institucional
+                <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );
