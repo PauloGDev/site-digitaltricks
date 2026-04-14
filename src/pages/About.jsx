@@ -98,11 +98,11 @@ const Sobre = () => {
               viewport={{ once: true }}
               className="lg:col-span-7"
             >
-              <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden">
+              <div className="relative overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:36px_36px] opacity-20" />
 
                 <img
-                  src={assets.about_land}
+                  src={assets.logo}
                   alt="Sobre a Digital Tricks"
                   className="w-full h-[360px] md:h-[520px] object-cover opacity-90"
                 />

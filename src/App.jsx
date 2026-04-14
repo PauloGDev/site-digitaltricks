@@ -9,11 +9,11 @@ import Design from './pages/Design';
 import Error404 from './pages/Error404';
 import Badapple from './pages/badapple';
 
-import NavBar from './components/NavbBar';
 import Footer from './components/Footer';
 import ScrollToTop from './context/ScrollToTop';
 import FadeAnimate from './context/FadeAnimate';
 import EcommerceVendas from './components/websites/EcommerceVendas';
+import Navbar from './components/NavbBar';
 
 const App = () => {
   const location = useLocation();
@@ -21,11 +21,7 @@ const App = () => {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      {!isBadapplePage && (
-        <nav className="fixed top-0 left-0 z-50 w-full">
-          <NavBar />
-        </nav>
-      )}
+      {!isBadapplePage && <Navbar />}
 
       <ToastContainer />
       <ScrollToTop />

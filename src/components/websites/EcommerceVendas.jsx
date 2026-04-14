@@ -13,10 +13,15 @@ import {
   BarChart3,
   HeartHandshake,
   CheckCircle2,
+  Blocks,
+  Database,
+  MonitorSmartphone,
+  Settings2,
 } from "lucide-react";
+import { assets } from "../../assets/assets";
 
-const EcommerceVendas = () => {
-  const beneficios = [
+const EcommerceVendas = ({ }) => {
+  const beneficiosEcommerce = [
     {
       icon: <TrendingUp className="w-5 h-5" />,
       title: "Mais vendas com estrutura",
@@ -49,13 +54,36 @@ const EcommerceVendas = () => {
     },
   ];
 
+  const beneficiosSaas = [
+    {
+      icon: <Blocks className="w-5 h-5" />,
+      title: "Produto escalável",
+      desc: "Sistemas SaaS pensados para crescer com mais organização, recorrência e previsibilidade.",
+    },
+    {
+      icon: <Database className="w-5 h-5" />,
+      title: "Painel e operação centralizada",
+      desc: "Gestão de usuários, permissões, planos, dados e processos em uma estrutura única.",
+    },
+    {
+      icon: <MonitorSmartphone className="w-5 h-5" />,
+      title: "Experiência de produto",
+      desc: "Interfaces projetadas para onboarding, retenção e uso recorrente do sistema.",
+    },
+    {
+      icon: <Settings2 className="w-5 h-5" />,
+      title: "Base para evolução contínua",
+      desc: "Arquitetura preparada para novos módulos, automações, integrações e crescimento do produto.",
+    },
+  ];
+
   const diferenciais = [
     "Desenvolvimento personalizado, sem templates genéricos",
-    "Checkout pensado para reduzir fricção",
-    "Integração com WhatsApp, Meta Ads e Analytics",
-    "Design responsivo com foco em conversão",
-    "Estrutura preparada para SEO e tráfego pago",
-    "Painel completo para pedidos, clientes e catálogo",
+    "Checkout e fluxos pensados para reduzir fricção",
+    "Integração com WhatsApp, Meta Ads, Analytics e ferramentas externas",
+    "Design responsivo com foco em conversão e clareza operacional",
+    "Estrutura preparada para SEO, tráfego pago e expansão",
+    "Painel completo para pedidos, clientes, catálogo ou gestão de usuários",
   ];
 
   const resultados = [
@@ -129,6 +157,45 @@ const EcommerceVendas = () => {
     },
   ];
 
+  const blocosSaas = [
+    {
+      nome: "SaaS Starter",
+      destaque: "Produto inicial validável",
+      desc: "Ideal para tirar a ideia do papel com um MVP sólido, com estrutura clara e boa experiência base.",
+      itens: [
+        "Dashboard inicial e autenticação",
+        "Cadastro de usuários e permissões",
+        "Estrutura principal do produto",
+        "UX/UI sob medida",
+        "Base preparada para evolução",
+      ],
+    },
+    {
+      nome: "SaaS Growth",
+      destaque: "Para evoluir e operar",
+      desc: "Para negócios que já validaram demanda e precisam organizar melhor operação, retenção e crescimento.",
+      itens: [
+        "Tudo do Starter",
+        "Módulos e fluxos avançados",
+        "Integrações externas",
+        "Melhorias de onboarding e retenção",
+        "Painel administrativo mais robusto",
+      ],
+    },
+    {
+      nome: "SaaS Premium",
+      destaque: "Produto com visão de escala",
+      desc: "Estrutura mais completa para plataformas que querem evoluir produto, automação e monetização recorrente.",
+      itens: [
+        "Tudo do Growth",
+        "Arquitetura mais avançada",
+        "Múltiplos perfis de acesso",
+        "Automação e relatórios",
+        "Base para billing, expansão e novos módulos",
+      ],
+    },
+  ];
+
   const planosHospedagem = [
     {
       nome: "Loja Starter",
@@ -180,6 +247,9 @@ const EcommerceVendas = () => {
     },
   ];
 
+  const ecommerceImage = assets.saas1;
+  const saasImage = assets.saas2;
+
   return (
     <section className="relative bg-black text-white overflow-hidden">
       <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_28%)]" />
@@ -187,7 +257,7 @@ const EcommerceVendas = () => {
       <div className="relative max-w-7xl mx-auto px-6 lg:px-20 py-28 md:py-36">
         {/* Hero */}
         <motion.div
-          className="grid lg:grid-cols-12 gap-10 mb-20 md:mb-24"
+          className="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center mb-20 md:mb-24"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55 }}
@@ -196,51 +266,208 @@ const EcommerceVendas = () => {
           <div className="lg:col-span-5">
             <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
               <span className="w-8 h-px bg-[#7B61FF]" />
-              E-commerce
+              E-commerce & SaaS
             </span>
 
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl font-semibold leading-[0.95] tracking-tight">
-              Estruture sua loja
+              Estruture produtos
               <br />
-              para vender com
-              <span className="text-[#7B61FF]"> mais consistência</span>
+              digitais com
+              <span className="text-[#7B61FF]"> mais clareza</span>
             </h1>
+
+            <p className="mt-6 max-w-xl text-white/60 text-base md:text-lg leading-relaxed">
+              Desenvolvemos e-commerces e sistemas SaaS com foco em performance,
+              experiência, clareza operacional e valor percebido. Mais do que
+              interfaces bonitas, construímos estruturas preparadas para crescer.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-4">
+              <a
+                href="https://wa.me/5585921743200?text=Olá!%20Quero%20falar%20sobre%20e-commerce%20ou%20sistema%20SaaS."
+                className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
+              >
+                Falar sobre meu projeto
+                <ArrowRight className="w-4 h-4" />
+              </a>
+
+              <a
+                href="#planos"
+                className="px-6 py-3 text-sm font-medium border border-white/10 text-white/80 hover:bg-white/[0.04] transition-colors"
+              >
+                Ver estruturas
+              </a>
+            </div>
           </div>
 
-          <div className="lg:col-span-7 flex items-end">
-            <p className="max-w-2xl text-white/60 text-base md:text-lg leading-relaxed">
-              Desenvolvemos e-commerces com foco em performance, conversão,
-              clareza operacional e percepção premium. Mais do que uma loja
-              bonita, uma estrutura preparada para crescer.
-            </p>
+          <div className="lg:col-span-7 grid md:grid-cols-2 gap-8">
+
+  {/* E-commerce */}
+  <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
+
+    {/* Grid */}
+    <div className="absolute inset-0 opacity-20 
+      bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),
+          linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] 
+      bg-[size:32px_32px]"
+    />
+
+    {/* Imagem grande */}
+    <div className="relative w-full">
+      <img
+        src={assets.saas1}
+        alt="E-commerce"
+        className="w-full object-contain scale-[1.1] md:scale-[1.2]"
+      />
+    </div>
+
+    {/* Label */}
+    <div className="mt-6 border-t border-white/10 pt-4">
+      <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
+        E-commerce
+      </span>
+      <p className="mt-2 text-sm text-white/80">
+        Catálogo, checkout e operação com foco em conversão.
+      </p>
+    </div>
+
+  </div>
+
+  {/* SaaS */}
+  <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
+
+    <div className="relative w-full">
+      <img
+        src={assets.saas2}
+        alt="SaaS"
+        className="w-full object-contain scale-[1.1] md:scale-[1.2]"
+      />
+    </div>
+
+    <div className="mt-6 border-t border-white/10 pt-4">
+      <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
+        SaaS Platform
+      </span>
+      <p className="mt-2 text-sm text-white/80">
+        Dashboard, gestão e recorrência em estrutura escalável.
+      </p>
+    </div>
+
+  </div>
+
+</div>
+        </motion.div>
+
+        {/* Bloco E-commerce */}
+        <motion.div
+          className="mb-20 md:mb-24"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-10 mb-12">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <span className="w-8 h-px bg-[#7B61FF]" />
+                E-commerce
+              </span>
+
+              <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
+                Lojas preparadas para
+                <span className="text-[#7B61FF]"> vender melhor</span>
+              </h2>
+            </div>
+
+            <div className="lg:col-span-7 flex items-end">
+              <p className="max-w-2xl text-white/60 leading-relaxed">
+                Estruturamos lojas virtuais com foco em conversão, clareza de
+                navegação, operação mais segura e base para aquisição de tráfego.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
+            {beneficiosEcommerce.map((b, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
+              >
+                <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                  {b.icon}
+                </div>
+
+                <h3 className="text-xl font-medium tracking-tight text-white">
+                  {b.title}
+                </h3>
+
+                <p className="mt-3 text-white/58 leading-relaxed">
+                  {b.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
 
-        {/* Benefícios */}
-        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 mb-20 md:mb-24">
-          {beneficios.map((b, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 22 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.45, delay: i * 0.05 }}
-              viewport={{ once: true }}
-              className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
-            >
-              <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
-                {b.icon}
-              </div>
+        {/* Bloco SaaS */}
+        <motion.div
+          className="mb-20 md:mb-24 border-t border-white/10 pt-12 md:pt-14"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-10 mb-12">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <span className="w-8 h-px bg-[#7B61FF]" />
+                Sistemas SaaS
+              </span>
 
-              <h3 className="text-xl font-medium tracking-tight text-white">
-                {b.title}
-              </h3>
+              <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
+                Produtos digitais com
+                <span className="text-[#7B61FF]"> lógica de evolução</span>
+              </h2>
+            </div>
 
-              <p className="mt-3 text-white/58 leading-relaxed">
-                {b.desc}
+            <div className="lg:col-span-7 flex items-end">
+              <p className="max-w-2xl text-white/60 leading-relaxed">
+                Desenvolvemos sistemas SaaS para negócios que precisam organizar
+                processos, vender assinaturas, centralizar operação e escalar um
+                produto digital com mais consistência.
               </p>
-            </motion.div>
-          ))}
-        </div>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-2 xl:grid-cols-4 gap-6 md:gap-8">
+            {beneficiosSaas.map((b, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: i * 0.05 }}
+                viewport={{ once: true }}
+                className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
+              >
+                <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
+                  {b.icon}
+                </div>
+
+                <h3 className="text-xl font-medium tracking-tight text-white">
+                  {b.title}
+                </h3>
+
+                <p className="mt-3 text-white/58 leading-relaxed">
+                  {b.desc}
+                </p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
         {/* Diferenciais + Resultados */}
         <div className="grid lg:grid-cols-12 gap-10 mb-20 md:mb-24">
@@ -258,7 +485,7 @@ const EcommerceVendas = () => {
 
             <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
               Estrutura comercial e técnica
-              <span className="text-[#7B61FF]"> pensada para vender</span>
+              <span className="text-[#7B61FF]"> pensada para crescer</span>
             </h2>
 
             <div className="mt-8 grid sm:grid-cols-2 gap-4">
@@ -305,8 +532,9 @@ const EcommerceVendas = () => {
           </motion.div>
         </div>
 
-        {/* Planos Ecommerce */}
+        {/* Planos */}
         <motion.div
+          id="planos"
           className="mb-20 md:mb-24"
           initial={{ opacity: 0, y: 18 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -317,19 +545,20 @@ const EcommerceVendas = () => {
             <div className="lg:col-span-5">
               <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
                 <span className="w-8 h-px bg-[#7B61FF]" />
-                Planos
+                Estruturas
               </span>
 
               <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
-                Estruturas para diferentes
-                <span className="text-[#7B61FF]"> estágios de operação</span>
+                Soluções para diferentes
+                <span className="text-[#7B61FF]"> estágios de produto</span>
               </h2>
             </div>
 
             <div className="lg:col-span-7 flex items-end">
               <p className="max-w-2xl text-white/60 leading-relaxed">
-                Escolha a base mais adequada para o momento da sua marca e evolua
-                com uma estrutura capaz de acompanhar seu crescimento.
+                Escolha a estrutura mais adequada para seu momento atual, seja
+                para iniciar uma operação digital, escalar vendas ou evoluir um
+                sistema recorrente.
               </p>
             </div>
           </div>
@@ -352,9 +581,75 @@ const EcommerceVendas = () => {
                   {plano.nome}
                 </h3>
 
-                <div className="mt-4 text-3xl font-semibold tracking-tight text-[#7B61FF]">
-                  {plano.preco}
+                <div className="mt-4 text-2xl font-semibold tracking-tight text-[#7B61FF]">
+                  A Consultar
                 </div>
+
+                <p className="mt-4 text-white/60 leading-relaxed">
+                  {plano.desc}
+                </p>
+
+                <div className="mt-8 space-y-3">
+                  {plano.itens.map((item, idx) => (
+                    <div key={idx} className="flex items-start gap-3">
+                      <CheckCircle2 className="w-4 h-4 min-w-4 text-[#7B61FF] mt-1" />
+                      <span className="text-white/70 leading-relaxed text-sm">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Bloco SaaS estrutura */}
+        <motion.div
+          className="mb-20 md:mb-24 border-t border-white/10 pt-12 md:pt-14"
+          initial={{ opacity: 0, y: 18 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.55 }}
+          viewport={{ once: true }}
+        >
+          <div className="grid lg:grid-cols-12 gap-10 mb-12">
+            <div className="lg:col-span-5">
+              <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
+                <span className="w-8 h-px bg-[#7B61FF]" />
+                SaaS
+              </span>
+
+              <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
+                Estruturas para criar e evoluir
+                <span className="text-[#7B61FF]"> sistemas recorrentes</span>
+              </h2>
+            </div>
+
+            <div className="lg:col-span-7 flex items-end">
+              <p className="max-w-2xl text-white/60 leading-relaxed">
+                Desenvolvemos sistemas SaaS sob medida para nichos, operações internas
+                e produtos digitais que precisam de lógica de assinatura, gestão e expansão.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6 md:gap-8">
+            {blocosSaas.map((plano, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 22 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.45, delay: i * 0.06 }}
+                viewport={{ once: true }}
+                className="border border-white/10 bg-[#0A0A0A] p-8 flex flex-col"
+              >
+                <span className="text-[11px] uppercase tracking-[0.22em] text-white/35">
+                  {plano.destaque}
+                </span>
+
+                <h3 className="mt-4 text-2xl font-medium tracking-tight text-white">
+                  {plano.nome}
+                </h3>
 
                 <p className="mt-4 text-white/60 leading-relaxed">
                   {plano.desc}
@@ -391,15 +686,15 @@ const EcommerceVendas = () => {
               </span>
 
               <h2 className="mt-6 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight">
-                Hospedagem e manutenção
-                <span className="text-[#7B61FF]"> com suporte contínuo</span>
+                Hospedagem, manutenção e
+                <span className="text-[#7B61FF]"> suporte contínuo</span>
               </h2>
             </div>
 
             <div className="lg:col-span-7 flex items-end">
               <p className="max-w-2xl text-white/60 leading-relaxed">
-                Depois do lançamento, a operação precisa seguir estável, segura
-                e evoluindo. Os planos abaixo cobrem diferentes níveis de suporte.
+                Depois do lançamento, a operação precisa seguir estável, segura e evoluindo.
+                Os planos abaixo cobrem diferentes níveis de suporte para lojas e sistemas.
               </p>
             </div>
           </div>
@@ -456,22 +751,22 @@ const EcommerceVendas = () => {
               </span>
 
               <h2 className="mt-4 text-3xl md:text-4xl font-semibold leading-[1] tracking-tight text-white">
-                Estruture sua operação digital
+                Estruture seu e-commerce ou SaaS
                 <span className="text-[#7B61FF]"> com mais clareza</span>
               </h2>
 
               <p className="mt-4 max-w-2xl text-white/60 leading-relaxed">
-                Escolha o plano mais adequado, valide sua operação e lance uma
-                loja mais preparada para vender com constância.
+                Podemos definir a melhor estrutura para sua operação, validar prioridades
+                e construir uma base mais forte para vendas, recorrência e crescimento.
               </p>
             </div>
 
             <div className="lg:col-span-4 flex lg:justify-end">
               <a
-                href="https://wa.me/5585921743200?text=Olá!%20Quero%20lançar%20minha%20loja%20virtual%20e%20preciso%20de%20ajuda%20para%20escolher%20o%20melhor%20plano.%20Podemos%20conversar?"
+                href="https://wa.me/5585921743200?text=Olá!%20Quero%20falar%20sobre%20um%20e-commerce%20ou%20sistema%20SaaS."
                 className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
               >
-                Falar sobre meu e-commerce
+                Falar sobre meu projeto
                 <ArrowRight className="w-4 h-4" />
               </a>
             </div>

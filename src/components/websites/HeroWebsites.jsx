@@ -90,7 +90,7 @@ const HeroWebsites = ({ assets }) => {
               <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:36px_36px] opacity-20" />
 
               <img
-                src={assets.website_land}
+                src={assets.websitesHero}
                 alt="Mockup de website"
                 className="w-full h-[340px] md:h-[520px] object-cover opacity-90"
               />
