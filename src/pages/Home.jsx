@@ -10,6 +10,7 @@ import FAQ from '../components/home/Faq';
 import Portfolio from '../components/home/Portfolio';
 import ServicosBeneficios from '../components/home/ServicosBeneficios';
 import EcommercesHome from '../components/home/EcommercesHome';
+import MascoteHome from '../components/home/MascoteHome';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       <Hero />
 
       <main className="">
+        <MascoteHome />
         <Apresentacao assets={assets} />
         <EcommercesHome />
         <Portfolio assets={assets} />

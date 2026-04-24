@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
+import { AnimatePresence, motion } from 'framer-motion';
 import { ToastContainer } from 'react-toastify';
 
 import Home from './pages/Home';
@@ -14,35 +15,72 @@ import ScrollToTop from './context/ScrollToTop';
 import FadeAnimate from './context/FadeAnimate';
 import EcommerceVendas from './components/websites/EcommerceVendas';
 import Navbar from './components/NavbBar';
+import SiteLoader from './components/SiteLoader';
 
 const App = () => {
   const location = useLocation();
   const isBadapplePage = location.pathname === '/badapple';
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const minLoadingTime = 1100;
+    const startTime = performance.now();
+    let loadingTimer;
+
+    const finishLoading = () => {
+      const elapsed = performance.now() - startTime;
+      const remainingTime = Math.max(0, minLoadingTime - elapsed);
+
+      loadingTimer = window.setTimeout(() => {
+        setIsLoading(false);
+      }, remainingTime);
+    };
+
+    if (document.readyState === 'complete') {
+      finishLoading();
+    } else {
+      window.addEventListener('load', finishLoading, { once: true });
+    }
+
+    return () => {
+      window.removeEventListener('load', finishLoading);
+      window.clearTimeout(loadingTimer);
+    };
+  }, []);
 
   return (
-    <div className="bg-black text-white min-h-screen">
-      {!isBadapplePage && <Navbar />}
+    <>
+      <AnimatePresence>{isLoading && <SiteLoader />}</AnimatePresence>
 
-      <ToastContainer />
-      <ScrollToTop />
-      <FadeAnimate />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: isLoading ? 0 : 1 }}
+        transition={{ duration: 0.45, ease: 'easeOut' }}
+        className="bg-black text-white min-h-screen"
+      >
+        {!isBadapplePage && <Navbar />}
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sobre" element={<About />} />
-        <Route path="/websites" element={<Website />} />
-        <Route path="/ecommerce" element={<EcommerceVendas />} />
-        <Route path="/design" element={<Design />} />
-        <Route path="/badapple" element={<Badapple />} />
-        <Route path="*" element={<Error404 />} />
-      </Routes>
+        <ToastContainer />
+        <ScrollToTop />
+        <FadeAnimate />
 
-      {!isBadapplePage && (
-        <div className="w-full">
-          <Footer />
-        </div>
-      )}
-    </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/sobre" element={<About />} />
+          <Route path="/websites" element={<Website />} />
+          <Route path="/ecommerce" element={<EcommerceVendas />} />
+          <Route path="/design" element={<Design />} />
+          <Route path="/badapple" element={<Badapple />} />
+          <Route path="*" element={<Error404 />} />
+        </Routes>
+
+        {!isBadapplePage && (
+          <div className="w-full">
+            <Footer />
+          </div>
+        )}
+      </motion.div>
+    </>
   );
 };
 

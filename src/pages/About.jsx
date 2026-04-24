@@ -102,21 +102,12 @@ const Sobre = () => {
                 <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:36px_36px] opacity-20" />
 
                 <img
-                  src={assets.logo}
+                  src="/OrcaCafe.webp"
                   alt="Sobre a Digital Tricks"
-                  className="w-full h-[360px] md:h-[520px] object-cover opacity-90"
+                  className="w-full h-[560px] md:h-[820px] object-cover opacity-90"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black via-black/10 to-transparent" />
-
-                <div className="absolute left-5 bottom-5 md:left-6 md:bottom-6 border border-white/10 bg-black/55 backdrop-blur-sm px-4 py-3">
-                  <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
-                    Digital Presence
-                  </span>
-                  <p className="mt-1 text-sm text-white/85">
-                    Posicionamento, identidade e performance em uma mesma direção.
-                  </p>
-                </div>
               </div>
             </motion.div>
           </div>

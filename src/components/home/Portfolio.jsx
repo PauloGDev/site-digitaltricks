@@ -28,30 +28,6 @@ const Portfolio = ({ assets }) => {
       image: assets.site1,
       link: "https://centronovageracao.com.br",
     },
-    {
-      name: "Consult Social",
-      category: "Landing Page",
-      year: "2025",
-      tools: [assets.react, assets.js],
-      image: assets.site2,
-      link: "https://consultsocial.com.br",
-    },
-    {
-      name: "Dra. Priscila Babiuk",
-      category: "Landing Page",
-      year: "2025",
-      tools: [assets.react, assets.js],
-      image: assets.site3,
-      link: "https://drapriscilababiuk.com.br",
-    },
-    {
-      name: "AR Studio Design",
-      category: "Institucional",
-      year: "2025",
-      tools: [assets.react, assets.js],
-      image: assets.site4,
-      link: "https://arstudiodesign.com.br",
-    },
   ];
 
   return (

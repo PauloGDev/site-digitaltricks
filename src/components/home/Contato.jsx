@@ -7,34 +7,36 @@ const Contato = () => {
   const [isSending, setIsSending] = useState(false);
 
   const onSubmit = async (event) => {
-    event.preventDefault();
-    setIsSending(true);
-    setResult("");
+  event.preventDefault();
+  setIsSending(true);
+  setResult("");
 
-    const form = event.currentTarget;
-    const formData = new FormData(form);
-    formData.append("access_key", "SUA_KEY");
+  const form = event.currentTarget;
+  const formData = new FormData(form);
+  formData.append("access_key", "13127361-eff7-449e-a1c6-1c4a6532a6d5");
 
-    try {
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: formData,
-      });
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
-      if (data.success) {
-        setResult("Mensagem enviada com sucesso.");
-        form.reset();
-      } else {
-        setResult("Erro ao enviar mensagem.");
-      }
-    } catch {
-      setResult("Erro ao enviar mensagem.");
-    } finally {
-      setIsSending(false);
+    if (data.success) {
+      setResult("Mensagem enviada com sucesso.");
+      form.reset();
+    } else {
+      setResult(data.message || "Erro ao enviar mensagem.");
+      console.error(data);
     }
-  };
+  } catch (error) {
+    console.error(error);
+    setResult("Erro ao enviar mensagem.");
+  } finally {
+    setIsSending(false);
+  }
+};
 
   return (
     <section

@@ -300,62 +300,62 @@ const EcommerceVendas = ({ }) => {
             </div>
           </div>
 
-          <div className="lg:col-span-7 grid md:grid-cols-2 gap-8">
+    <div className="lg:col-span-7 grid grid-cols-1 gap-8 max-w-2xl">
 
-  {/* E-commerce */}
-  <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
+      {/* E-commerce */}
+      <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
 
-    {/* Grid */}
-    <div className="absolute inset-0 opacity-20 
-      bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),
-          linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] 
-      bg-[size:32px_32px]"
-    />
+        {/* Grid */}
+        <div className="absolute inset-0 opacity-20
+          bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),
+              linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] 
+          bg-[size:32px_32px]"
+        />
 
-    {/* Imagem grande */}
-    <div className="relative w-full">
-      <img
-        src={assets.saas1}
-        alt="E-commerce"
-        className="w-full object-contain scale-[1.1] md:scale-[1.2]"
-      />
+        {/* Imagem grande */}
+        <div className="relative w-full">
+          <img
+            src={assets.saas1}
+            alt="E-commerce"
+            className="w-full object-contain"
+          />
+        </div>
+
+        {/* Label */}
+        <div className="mt-6 border-t border-white/10 pt-4">
+          <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
+            E-commerce
+          </span>
+          <p className="mt-2 text-sm text-white/80">
+            Catálogo, checkout e operação com foco em conversão.
+          </p>
+        </div>
+
+      </div>
+
+      {/* SaaS */}
+      <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
+
+        <div className="relative">
+          <img
+            src={assets.saas2}
+            alt="SaaS"
+            className="w-full object-contain"
+          />
+        </div>
+
+        <div className="mt-6 border-t border-white/10 pt-4">
+          <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
+            SaaS Platform
+          </span>
+          <p className="mt-2 text-sm text-white/80">
+            Dashboard, gestão e recorrência em estrutura escalável.
+          </p>
+        </div>
+
+      </div>
+
     </div>
-
-    {/* Label */}
-    <div className="mt-6 border-t border-white/10 pt-4">
-      <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
-        E-commerce
-      </span>
-      <p className="mt-2 text-sm text-white/80">
-        Catálogo, checkout e operação com foco em conversão.
-      </p>
-    </div>
-
-  </div>
-
-  {/* SaaS */}
-  <div className="relative border border-white/10 bg-[#0A0A0A] overflow-hidden p-6 md:p-8">
-
-    <div className="relative w-full">
-      <img
-        src={assets.saas2}
-        alt="SaaS"
-        className="w-full object-contain scale-[1.1] md:scale-[1.2]"
-      />
-    </div>
-
-    <div className="mt-6 border-t border-white/10 pt-4">
-      <span className="block text-[10px] uppercase tracking-[0.22em] text-white/40">
-        SaaS Platform
-      </span>
-      <p className="mt-2 text-sm text-white/80">
-        Dashboard, gestão e recorrência em estrutura escalável.
-      </p>
-    </div>
-
-  </div>
-
-</div>
         </motion.div>
 
         {/* Bloco E-commerce */}
