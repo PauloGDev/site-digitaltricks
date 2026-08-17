@@ -7,7 +7,9 @@ const Portfolio = ({ assets }) => {
     {
       name: "CRXW - 3D CGI",
       category: "Institucional",
-      year: "2025",
+      year: "2026",
+      description:
+        "Site institucional criado para destacar soluções em CGI e 3D com uma apresentação sofisticada, moderna e imersiva.",
       tools: [assets.react, assets.js, assets.java, assets.spring],
       image: assets.site6,
       link: "https://crxw.com.br",
@@ -16,6 +18,8 @@ const Portfolio = ({ assets }) => {
       name: "OZD Studio",
       category: "Institucional",
       year: "2025",
+      description:
+        "Website desenvolvido para transmitir a identidade do estúdio com uma navegação elegante, visual refinado e foco em credibilidade.",
       tools: [assets.react, assets.js],
       image: assets.site5,
       link: "https://ozdstudio.com.br",
@@ -24,6 +28,8 @@ const Portfolio = ({ assets }) => {
       name: "CPNG",
       category: "Landing Page",
       year: "2025",
+      description:
+        "Landing page pensada para fortalecer a presença digital da instituição, com comunicação clara, visual acolhedor e estrutura responsiva.",
       tools: [assets.react, assets.js],
       image: assets.site1,
       link: "https://centronovageracao.com.br",
@@ -118,8 +124,7 @@ const Portfolio = ({ assets }) => {
                 </div>
 
                 <p className="mt-3 text-sm md:text-base text-white/58 leading-relaxed">
-                  Projeto com direção visual contemporânea, estrutura responsiva
-                  e foco em presença digital sólida.
+                  {project.description}
                 </p>
 
                 <div className="mt-6 flex items-center justify-between gap-4">

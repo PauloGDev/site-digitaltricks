@@ -11,6 +11,7 @@ import erro from './erro.png'
 
 import websitesHero from './websites-hero.jpg'
 import badapple from './badapple.mp4'
+import stickbug from './stick.mp4'
 
 import js from './js-logo.png'
 import java from './java-logo.png'
@@ -47,6 +48,7 @@ export const assets = {
 
   websitesHero,
   badapple,
+  stickbug,
 
   js,
   java,

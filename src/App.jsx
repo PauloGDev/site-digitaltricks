@@ -9,6 +9,7 @@ import Website from './pages/Website';
 import Design from './pages/Design';
 import Error404 from './pages/Error404';
 import Badapple from './pages/badapple';
+import GetStickBugged from './pages/GetStickBugged';
 
 import Footer from './components/Footer';
 import ScrollToTop from './context/ScrollToTop';
@@ -19,38 +20,45 @@ import SiteLoader from './components/SiteLoader';
 
 const App = () => {
   const location = useLocation();
-  const isBadapplePage = location.pathname === '/badapple';
-  const [isLoading, setIsLoading] = useState(true);
+const isBadapplePage =
+  location.pathname === "/badapple" ||
+  location.pathname === "/s";  const [isLoading, setIsLoading] = useState(true);
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    const minLoadingTime = 1100;
+    const loadingDuration = 950;
     const startTime = performance.now();
-    let loadingTimer;
+    let animationFrame = 0;
 
-    const finishLoading = () => {
-      const elapsed = performance.now() - startTime;
-      const remainingTime = Math.max(0, minLoadingTime - elapsed);
+    const updateProgress = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const nextProgress = Math.min(100, Math.round((elapsed / loadingDuration) * 100));
 
-      loadingTimer = window.setTimeout(() => {
-        setIsLoading(false);
-      }, remainingTime);
+      setLoadingProgress(nextProgress);
+
+      if (nextProgress < 100) {
+        animationFrame = window.requestAnimationFrame(updateProgress);
+      }
     };
 
-    if (document.readyState === 'complete') {
-      finishLoading();
-    } else {
-      window.addEventListener('load', finishLoading, { once: true });
-    }
+    animationFrame = window.requestAnimationFrame(updateProgress);
+
+    const loadingTimer = window.setTimeout(() => {
+      setLoadingProgress(100);
+      setIsLoading(false);
+    }, loadingDuration);
 
     return () => {
-      window.removeEventListener('load', finishLoading);
+      window.cancelAnimationFrame(animationFrame);
       window.clearTimeout(loadingTimer);
     };
   }, []);
 
   return (
     <>
-      <AnimatePresence>{isLoading && <SiteLoader />}</AnimatePresence>
+      <AnimatePresence>
+        {isLoading && <SiteLoader progress={loadingProgress} />}
+      </AnimatePresence>
 
       <motion.div
         initial={{ opacity: 0 }}
@@ -71,6 +79,7 @@ const App = () => {
           <Route path="/ecommerce" element={<EcommerceVendas />} />
           <Route path="/design" element={<Design />} />
           <Route path="/badapple" element={<Badapple />} />
+          <Route path="/s" element={<GetStickBugged />} />
           <Route path="*" element={<Error404 />} />
         </Routes>
 

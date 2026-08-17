@@ -119,7 +119,7 @@ const Footer = () => {
 
               <div className="flex gap-3 mt-8">
                 <a
-                  href="https://www.instagram.com/digitaltricks.design/"
+                  href="https://www.instagram.com/digitaltricks.web/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 border border-white/10 bg-white/[0.03] flex items-center justify-center text-white/70 hover:text-white hover:border-white/20 transition-colors"

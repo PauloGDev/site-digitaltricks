@@ -1,8 +1,11 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { assets } from "../assets/assets";
 
-const SiteLoader = () => {
+const SiteLoader = ({ progress = 0 }) => {
+  const shouldReduceMotion = useReducedMotion();
+  const safeProgress = Math.min(100, Math.max(0, progress));
+
   return (
     <motion.div
       initial={{ opacity: 1 }}
@@ -24,13 +27,21 @@ const SiteLoader = () => {
       >
         <div className="relative flex h-28 w-28 items-center justify-center">
           <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 3.2, repeat: Infinity, ease: "linear" }}
+            animate={shouldReduceMotion ? undefined : { rotate: 360 }}
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : { duration: 3.2, repeat: Infinity, ease: "linear" }
+            }
             className="absolute inset-0 border border-white/10 border-t-[#7B61FF]"
           />
           <motion.div
-            animate={{ rotate: -360 }}
-            transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
+            animate={shouldReduceMotion ? undefined : { rotate: -360 }}
+            transition={
+              shouldReduceMotion
+                ? undefined
+                : { duration: 5, repeat: Infinity, ease: "linear" }
+            }
             className="absolute inset-3 border border-cyan-300/10 border-b-cyan-300/70"
           />
           <img
@@ -43,15 +54,22 @@ const SiteLoader = () => {
         <div className="mt-8 w-full">
           <div className="flex items-center justify-between text-[10px] uppercase tracking-[0.28em] text-white/45">
             <span>Digital Tricks</span>
-            <span>Loading</span>
+            <span>{safeProgress}%</span>
           </div>
 
-          <div className="mt-3 h-px w-full overflow-hidden bg-white/10">
+          <div
+            className="mt-3 h-[2px] w-full overflow-hidden bg-white/10"
+            aria-hidden="true"
+          >
             <motion.div
-              initial={{ x: "-100%" }}
-              animate={{ x: "100%" }}
-              transition={{ duration: 1.15, repeat: Infinity, ease: "easeInOut" }}
-              className="h-full w-2/3 bg-gradient-to-r from-transparent via-[#7B61FF] to-cyan-300"
+              initial={{ scaleX: 0 }}
+              animate={{ scaleX: safeProgress / 100 }}
+              transition={
+                shouldReduceMotion
+                  ? { duration: 0 }
+                  : { duration: 0.18, ease: "easeOut" }
+              }
+              className="h-full w-full origin-left bg-gradient-to-r from-[#7B61FF] via-[#9B89FF] to-cyan-300"
             />
           </div>
         </div>
