@@ -54,7 +54,6 @@ const LegalPage = ({ type }) => {
         eyebrow="Informações legais"
         title={content.title}
         description={content.description}
-        aside="Última atualização: agosto de 2026."
       />
       <section className="section-space bg-white text-[#17151d]">
         <div className="page-shell max-w-5xl">

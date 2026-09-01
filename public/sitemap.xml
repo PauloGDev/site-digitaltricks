@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://digitaltricks.com.br/</loc><priority>1.0</priority></url>
+  <url><loc>https://digitaltricks.com.br/para-seu-negocio</loc><priority>0.9</priority></url>
+  <url><loc>https://digitaltricks.com.br/para-seu-negocio/oficinas</loc><priority>0.9</priority></url>
+  <url><loc>https://digitaltricks.com.br/para-seu-negocio/concessionarias</loc><priority>0.9</priority></url>
+  <url><loc>https://digitaltricks.com.br/para-seu-negocio/lojas-automotivas</loc><priority>0.9</priority></url>
+  <url><loc>https://digitaltricks.com.br/sistema-concessionarias</loc><priority>0.9</priority></url>
   <url><loc>https://digitaltricks.com.br/solucoes</loc><priority>0.9</priority></url>
-  <url><loc>https://digitaltricks.com.br/solucoes/sites</loc><priority>0.8</priority></url>
+  <url><loc>https://digitaltricks.com.br/solucoes/posicionamento</loc><priority>0.8</priority></url>
+  <url><loc>https://digitaltricks.com.br/solucoes/landing-pages-sites</loc><priority>0.8</priority></url>
   <url><loc>https://digitaltricks.com.br/solucoes/criativos</loc><priority>0.8</priority></url>
-  <url><loc>https://digitaltricks.com.br/solucoes/marketing</loc><priority>0.8</priority></url>
   <url><loc>https://digitaltricks.com.br/solucoes/trafego-pago</loc><priority>0.8</priority></url>
   <url><loc>https://digitaltricks.com.br/metodo</loc><priority>0.8</priority></url>
   <url><loc>https://digitaltricks.com.br/sobre</loc><priority>0.7</priority></url>

@@ -19,7 +19,7 @@ const setMeta = (selector, attribute, value) => {
 
 const Seo = ({ title, description, path = "/" }) => {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Seu digital em 15 dias`;
+    const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Digital para o mercado automotivo`;
     const canonical = `${BASE_URL}${path === "/" ? "" : path}`;
 
     document.title = fullTitle;

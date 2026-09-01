@@ -1,4 +1,4 @@
-import { ArrowRight, Compass, Eye, Layers3, RefreshCw, Rocket } from "lucide-react";
+import { ArrowRight, Check, Clock3, Layers3, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTASection from "../components/CTASection";
 import PageHero from "../components/PageHero";
@@ -7,115 +7,49 @@ import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
 import { methodSteps } from "../data/siteData";
 
-const stepIcons = [Eye, Compass, Layers3, Rocket, RefreshCw];
-
 const Method = () => (
   <>
-    <Seo
-      title="Método"
-      description="Conheça o sprint de 15 dias da Digital Tricks para posicionar e colocar no ar a estrutura digital inicial da empresa."
-      path="/metodo"
-    />
-
-    <PageHero
-      eyebrow="Método Digital Tricks"
-      title="Seu digital em movimento em 15 dias."
-      description="Um sprint objetivo para definir o posicionamento, produzir os canais essenciais e colocar a estrutura inicial no ar."
-      aside="O prazo funciona com escopo claro, materiais disponíveis e aprovações realizadas dentro do cronograma."
-    >
-      <Link to="/diagnostico" className="home-button-dark mt-9 w-fit">
-        Começar meu projeto de 15 dias
-        <ArrowRight className="h-4 w-4" />
-      </Link>
+    <Seo title="Método" description="Entenda como a Digital Tricks define, aprova e produz a estrutura digital automotiva em 15 dias." path="/metodo" />
+    <PageHero eyebrow="Método Digital Tricks" title="Os 15 dias começam depois que a direção está aprovada." description="Diagnóstico, estratégia, escopo, materiais e acessos são resolvidos antes da contagem. O ciclo de produção começa com uma decisão clara sobre o que será construído.">
+      <Link to="/diagnostico" className="home-button-dark mt-9 w-fit">Começar pelo diagnóstico <ArrowRight className="h-4 w-4" /></Link>
     </PageHero>
 
     <section className="section-space bg-white text-[#17151d]">
-      <div className="page-shell grid gap-14 lg:grid-cols-12">
-        <Reveal className="lg:col-span-5">
-          <SectionHeading
-            eyebrow="Ponto de partida"
-            title="Velocidade precisa de uma direção clara."
-            description="Antes da produção, alinhamos posicionamento, oferta e público para que sites, criativos e campanhas comuniquem a mesma empresa."
-          />
-        </Reveal>
-        <Reveal delay={0.1} className="lg:col-span-7">
-          <blockquote className="rounded-r-[1.75rem] border-l-2 border-violet-500 bg-[#f2effa] py-8 pl-7 pr-7 text-balance text-2xl leading-[1.35] tracking-[-0.025em] text-[#302a37] sm:text-3xl lg:text-4xl">
-            “Quinze dias não significam improviso. Significam foco, decisões
-            rápidas e produção integrada em torno de um escopo claro.”
-          </blockquote>
-        </Reveal>
-      </div>
-    </section>
-
-    <section className="section-space bg-[#eae8ef] text-[#17151d]">
       <div className="page-shell">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Cinco etapas"
-            title="Do kickoff à entrega no dia 15."
-            className="max-w-4xl"
-          />
-        </Reveal>
-
-        <div className="mt-14">
-          {methodSteps.map((step, index) => {
-            const Icon = stepIcons[index];
-            return (
-              <Reveal key={step.number} delay={index * 0.04}>
-                <div className="group grid gap-6 border-t border-black/10 py-8 sm:grid-cols-[5rem_4rem_1fr] sm:items-start lg:py-10">
-                  <span className="text-xs font-semibold tracking-[0.22em] text-violet-700">{step.number}</span>
-                  <div className="grid h-12 w-12 place-items-center rounded-2xl bg-white text-[#5f5966] transition-colors group-hover:bg-violet-600 group-hover:text-white">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <div className="grid gap-4 lg:grid-cols-2">
-                    <h2 className="text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
-                      {step.title}
-                    </h2>
-                    <p className="max-w-xl text-sm leading-7 text-[#68626e] sm:text-base sm:leading-8">
-                      {step.description}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            );
-          })}
-        </div>
-      </div>
-    </section>
-
-    <section className="section-space bg-white text-[#17151d]">
-      <div className="page-shell">
-        <Reveal>
-          <SectionHeading
-            eyebrow="Princípios"
-            title="O que orienta nossas decisões."
-            className="max-w-4xl"
-          />
-        </Reveal>
-        <div className="mt-12 grid gap-4 md:grid-cols-3">
-          {[
-            ["Clareza antes de complexidade", "Toda solução precisa ser compreendida pela empresa e pelo cliente que interage com ela."],
-            ["Integração antes de volume", "Preferimos canais conectados a uma coleção extensa de ações que não trabalham juntas."],
-            ["Evolução antes de improviso", "Construímos bases que podem receber novos recursos sem recomeçar a cada fase."],
-          ].map(([title, description], index) => (
-            <Reveal key={title} delay={index * 0.06}>
-              <div className={`h-full rounded-[1.6rem] p-7 sm:p-8 ${index === 1 ? "bg-violet-600 text-white" : "border border-black/[0.08] bg-[#f3f0f8]"}`}>
-                <span className={`text-xs font-semibold tracking-[0.2em] ${index === 1 ? "text-violet-100" : "text-violet-700"}`}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <h3 className="mt-12 text-xl font-semibold">{title}</h3>
-                <p className={`mt-4 text-sm leading-7 ${index === 1 ? "text-white/70" : "text-[#68626e]"}`}>{description}</p>
-              </div>
+        <Reveal><SectionHeading eyebrow="A sequência" title="Direção antes de velocidade." description="O método reduz retrabalho porque a equipe só inicia a produção depois de validar o que o negócio precisa comunicar, captar e acompanhar." className="max-w-5xl" /></Reveal>
+        <div className="mt-14 space-y-4">
+          {methodSteps.map((step, index) => (
+            <Reveal key={step.number} delay={index * 0.04}>
+              <article className={`grid gap-5 rounded-[1.6rem] p-6 sm:p-8 lg:grid-cols-[5rem_1fr_1.15fr] lg:items-center ${index === 2 ? "bg-violet-600 text-white" : "border border-black/[0.08] bg-[#f7f6f9]"}`}>
+                <span className={`text-xs font-semibold tracking-[0.18em] ${index === 2 ? "text-violet-100" : "text-violet-700"}`}>{step.number}</span>
+                <h2 className="text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">{step.title}</h2>
+                <p className={`text-sm leading-7 sm:text-base ${index === 2 ? "text-violet-100/75" : "text-[#68626e]"}`}>{step.description}</p>
+              </article>
             </Reveal>
           ))}
         </div>
       </div>
     </section>
 
-    <CTASection
-      title="Daqui a 15 dias, sua empresa pode se apresentar de outra forma."
-      description="Compartilhe o momento atual para definirmos o escopo e iniciar o sprint de posicionamento digital."
-    />
+    <section className="section-space bg-[#17151d] text-white">
+      <div className="page-shell grid gap-4 md:grid-cols-3">
+        {[
+          [Clock3, "15 dias não são resultado", "O prazo corresponde à produção e ativação do escopo aprovado. Campanhas precisam de dados, atendimento e otimização para amadurecer."],
+          [Layers3, "Complexidade muda o prazo", "Grandes catálogos, integrações, migrações e múltiplas unidades recebem cronograma próprio."],
+          [ShieldCheck, "Software tem implantação própria", "O sistema para concessionárias passa por diagnóstico técnico, configuração, importação, testes e treinamento."],
+        ].map(([Icon, title, description], index) => (
+          <Reveal key={title} delay={index * 0.05}><article className="h-full min-h-[24rem] rounded-[1.6rem] border border-white/10 bg-white/[0.025] p-7"><Icon className="h-6 w-6 text-violet-300" /><h3 className="mt-16 text-2xl font-semibold tracking-[-0.035em]">{title}</h3><p className="mt-5 text-sm leading-7 text-white/50">{description}</p></article></Reveal>
+        ))}
+      </div>
+    </section>
+
+    <section className="section-space bg-[#eae8ef] text-[#17151d]">
+      <div className="page-shell grid gap-12 lg:grid-cols-12">
+        <Reveal className="lg:col-span-5"><SectionHeading eyebrow="Responsabilidades" title="Um cronograma só funciona quando os dois lados avançam." /></Reveal>
+        <Reveal delay={0.08} className="lg:col-span-7"><div className="rounded-[1.7rem] bg-white p-7 sm:p-10"><div className="space-y-5">{["Digital Tricks apresenta estratégia, escopo, dependências e cronograma.", "O cliente valida informações técnicas, ofertas, preços e condições comerciais.", "Materiais, acessos e retornos são disponibilizados nos marcos combinados.", "Alterações fora do escopo são avaliadas antes de entrar na produção.", "Campanhas e páginas são acompanhadas depois da ativação quando houver operação recorrente."].map((item) => <div key={item} className="flex gap-3 border-t border-black/10 pt-5 first:border-0 first:pt-0"><Check className="mt-1 h-4 w-4 shrink-0 text-violet-700" /><p className="text-sm leading-7 text-[#625d69]">{item}</p></div>)}</div></div></Reveal>
+      </div>
+    </section>
+    <CTASection title="Primeiro alinhamos a direção. Depois, a produção começa." />
   </>
 );
 

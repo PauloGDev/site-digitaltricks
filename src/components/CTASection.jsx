@@ -4,8 +4,8 @@ import Reveal from "./Reveal";
 
 const CTASection = ({
   eyebrow = "Próximo passo",
-  title = "Vamos montar o digital da sua empresa em 15 dias?",
-  description = "Conte-nos o momento atual para definirmos o posicionamento, o escopo inicial e o cronograma de implantação.",
+  title = "Estruture o próximo movimento do seu negócio automotivo.",
+  description = "Conte-nos o cenário atual. Primeiro definimos estratégia, escopo, materiais e acessos; depois da aprovação, começa o ciclo de produção de 15 dias.",
 }) => (
   <section className="bg-[#f7f6f9] pb-20 pt-8 sm:pb-28 sm:pt-12">
     <div className="page-shell">
@@ -27,7 +27,7 @@ const CTASection = ({
             </div>
             <div className="lg:col-span-4 lg:flex lg:justify-end">
               <Link to="/diagnostico" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-violet-700 shadow-lg transition-transform hover:-translate-y-0.5">
-                Quero meu digital em 15 dias
+                Solicitar diagnóstico
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
