@@ -1,62 +1,38 @@
-import React from "react";
+import { ArrowLeft, Compass } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
-import { assets } from "../assets/assets";
+import Reveal from "../components/Reveal";
+import Seo from "../components/Seo";
 
-const Error404 = () => {
-  return (
-    <section
-      id="inicio"
-      className="relative min-h-screen bg-black text-white overflow-hidden"
-    >
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_left,rgba(123,97,255,0.10),transparent_28%)]" />
-
-      <div className="relative max-w-7xl mx-auto px-6 lg:px-20 pt-28 md:pt-36 pb-20 min-h-screen flex items-center">
-        <div className="grid lg:grid-cols-12 gap-12 xl:gap-16 items-center w-full">
-
-          {/* Conteúdo */}
-          <div className="lg:col-span-6">
-            <span className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] text-white/45">
-              <span className="w-8 h-px bg-[#7B61FF]" />
-              Página não encontrada
-            </span>
-
-            <div className="mt-6 text-[64px] sm:text-[86px] md:text-[110px] leading-none font-semibold tracking-tight text-white">
-              404
-            </div>
-
-            <h1 className="mt-4 text-3xl md:text-4xl lg:text-5xl font-semibold tracking-tight leading-[0.98]">
-              Esta página não
-              <br />
-              <span className="text-[#7B61FF]">está disponível</span>
-            </h1>
-
-            <p className="mt-6 max-w-xl text-white/60 text-base md:text-lg leading-relaxed">
-              O endereço que você tentou acessar não existe mais, foi movido ou
-              está incorreto. Volte para a página inicial e continue navegando.
-            </p>
-
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Link
-                to="/"
-                className="inline-flex items-center gap-2 bg-[#7B61FF] text-white px-6 py-3 text-sm font-medium hover:bg-[#6A50F5] transition-colors"
-              >
-                Voltar para o início
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-
-              <Link
-                to="/websites"
-                className="px-6 py-3 text-sm font-medium border border-white/10 text-white/80 hover:bg-white/[0.04] transition-colors"
-              >
-                Ver serviços
-              </Link>
-            </div>
-          </div>
-        </div>
+const Error404 = () => (
+  <>
+    <Seo
+      title="Página não encontrada"
+      description="O endereço acessado não foi encontrado."
+      path="/404"
+    />
+    <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-[#e9e7ef] pb-20 pt-32 text-[#17151d]">
+      <div className="pointer-events-none absolute inset-0 dot-surface-light opacity-70" />
+      <div className="page-shell relative w-full">
+        <Reveal>
+          <Compass className="h-8 w-8 text-violet-700" />
+          <span className="mt-8 block text-[7rem] font-semibold leading-none tracking-[-0.08em] text-violet-600/20 sm:text-[11rem]">
+            404
+          </span>
+          <h1 className="-mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">
+            Esta rota não leva a lugar algum.
+          </h1>
+          <p className="mt-6 max-w-xl text-base leading-8 text-[#68626e]">
+            O endereço pode ter sido alterado ou não existir. Retorne ao início
+            para continuar explorando a Digital Tricks.
+          </p>
+          <Link to="/" className="home-button-dark mt-9 w-fit">
+            <ArrowLeft className="h-4 w-4" />
+            Voltar ao início
+          </Link>
+        </Reveal>
       </div>
     </section>
-  );
-};
+  </>
+);
 
 export default Error404;

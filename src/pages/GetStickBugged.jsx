@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from "react";
-import "../context/style.css";
-import { assets } from "../assets/assets";
+import { useEffect, useRef, useState } from "react";
+import stickbug from "../assets/stick.mp4";
 
 const grayRamp =
   "@$B%8&WM#*oahkbdpqwmZO0QLCJUYXzcvunxrjft/|()1{}[]?-_+~<>i!lI;:,\"^`'. ";
@@ -224,7 +223,7 @@ export default function AsciiConverter() {
 
       <video
         ref={videoRef}
-        src={assets.stickbug}
+        src={stickbug}
         autoPlay
         playsInline
         preload="auto"

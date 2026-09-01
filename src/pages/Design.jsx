@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Sparkles, PenTool, ArrowRight } from "lucide-react";
+import { Circle, PenTool, ArrowRight } from "lucide-react";
 import { assets } from "../assets/assets";
 
 const Design = () => {
@@ -111,7 +111,7 @@ const Design = () => {
                 className="border border-white/10 bg-[#0A0A0A] p-7 md:p-8 hover:border-white/20 transition-colors duration-300"
               >
                 <div className="w-11 h-11 border border-white/10 bg-white/[0.03] flex items-center justify-center text-[#7B61FF] mb-5">
-                  <Sparkles className="w-5 h-5" />
+                  <Circle className="w-5 h-5" />
                 </div>
 
                 <h3 className="text-xl font-medium tracking-tight text-white">
