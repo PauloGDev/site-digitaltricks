@@ -4,7 +4,7 @@ import Reveal from "./Reveal";
 
 const CTASection = ({
   eyebrow = "Próximo passo",
-  title = "Estruture o próximo movimento do seu negócio automotivo.",
+  title = "Estruture o próximo movimento do seu negócio.",
   description = "Conte-nos o cenário atual. Primeiro definimos estratégia, escopo, materiais e acessos; depois da aprovação, começa o ciclo de produção de 15 dias.",
 }) => (
   <section className="bg-[#f7f6f9] pb-20 pt-8 sm:pb-28 sm:pt-12">

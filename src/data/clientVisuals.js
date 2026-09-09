@@ -1,73 +1,80 @@
-import alucarCampaign from "../assets/client-work/alucar-campaign.webp";
-import alucarFlag from "../assets/client-work/alucar-flag.webp";
-import alucarTags from "../assets/client-work/alucar-tags.webp";
-import cosmooCampaign from "../assets/client-work/cosmoo-campaign.webp";
-import cosmooLogo from "../assets/client-work/cosmoo-logo.webp";
-import cosmooPackaging from "../assets/client-work/cosmoo-packaging.webp";
-import dapCap from "../assets/client-work/dap-cap.webp";
-import phantomCampaign from "../assets/client-work/phantom-campaign.webp";
-import phantomLogo from "../assets/client-work/phantom-logo.webp";
-import anaAracapeFortaleza from "../assets/client-work/ana-aracape-fortaleza.png";
-import fortalezaEletroSocial from "../assets/client-work/fortaleza-eletro-social.png";
-import monteAghaSocial from "../assets/client-work/monte-agha-social.png";
-import monveraProduct from "../assets/client-work/monvera-product.png";
-import site4 from "../assets/site4.png";
-import site5 from "../assets/site5.png";
-import site6 from "../assets/site6.png";
+import cosmooCampaign from "../assets/Posts Social media/Cosmoo-Post Social Media.webp";
+import cosmooLogo from "../assets/Logos/Logo Cosmoo.png";
+import cosmooPackaging from "../assets/Posts Social media/Cosmoo-produto com identidade visual.webp";
+import phantomLogo from "../assets/Logos/Logo Phantom Bo.png";
+import dapCap from "../assets/Posts Social media/vendas.jpg";
+import flagImg from "../assets/Posts Social media/lava jato D&A.jpg";
+import marketingDigital from "../assets/Posts Social media/marketing digital.jpg";
+import fortalezaExecutivo from "../assets/Posts Social media/fortal executivo.png";
+import site1 from "../assets/Sites e Landing page/Ana rita Luna - Arquiteta.png";
+import site2 from "../assets/Sites e Landing page/CRXW - Studio 3D.png";
+import site3 from "../assets/Sites e Landing page/Centro pedagogico nova geracao - CPNG.png";
 
 export const visualAssets = {
-  alucarCampaign,
-  alucarFlag,
-  alucarTags,
   cosmooCampaign,
   cosmooLogo,
   cosmooPackaging,
   dapCap,
-  phantomCampaign,
   phantomLogo,
-  anaAracapeFortaleza,
-  fortalezaEletroSocial,
-  monteAghaSocial,
-  monveraProduct,
-  site4,
-  site5,
-  site6,
+  flagImg,
+  marketingDigital,
+  fortalezaExecutivo,
+  site1,
+  site2,
+  site3,
 };
 
 export const servicePreviewImages = {
-  sites: site6,
-  criativos: phantomCampaign,
-  marketing: alucarCampaign,
+  sites: site3,
+  criativos: marketingDigital,
+  marketing: cosmooCampaign,
   "trafego-pago": dapCap,
 };
 
 export const serviceVisuals = {
   sites: [
-    { image: site6, brand: "CRXW", label: "Site com direção visual", alt: "Mockup do site CRXW", fit: "contain" },
-    { image: site4, brand: "Ana Rita Luna", label: "Site institucional", alt: "Mockup de site institucional para profissional de interiores", fit: "contain" },
-    { image: site5, brand: "OZD Studio", label: "Portfólio profissional", alt: "Mockup do portfólio OZD Studio", fit: "contain" },
+    { image: site2, brand: "CRXW", label: "Site com direção visual", alt: "Mockup do site CRXW", fit: "contain" },
+    { image: site1, brand: "Ana Rita Luna", label: "Site institucional", alt: "Mockup de site institucional para profissional de interiores", fit: "contain" },
+    { image: site3, brand: "Centro Pedagógico", label: "Página institucional", alt: "Mockup de landing page institucional", fit: "contain" },
   ],
   criativos: [
-    { image: anaAracapeFortaleza, brand: "Ana Aracape", label: "Campanha institucional", alt: "Criativo de aniversário de Fortaleza para Ana Aracape", tall: true },
-    { image: fortalezaEletroSocial, brand: "Fortaleza Eletro", label: "Social media", alt: "Aplicações de social media da Fortaleza Eletro" },
-    { image: monteAghaSocial, brand: "Monte Aghá", label: "Identidade e conteúdo", alt: "Aplicações de identidade e conteúdo da Assistência Monte Aghá" },
-    { image: monveraProduct, brand: "Monvera", label: "Visual de produto", alt: "Apresentação visual de produtos Monvera" },
-    { image: cosmooCampaign, brand: "COS MOO", label: "Campanha criativa", alt: "Campanha COS MOO com escultura clássica e identidade roxa", portrait: true, backgroundClass: "bg-[#2a0d4f]" },
-    { image: dapCap, brand: "DAP", label: "Aplicação em produto", alt: "Boné preto com identidade DAP" },
+    { image: cosmooCampaign, brand: "Cosmoo", label: "Conceito de campanha", alt: "Post social media Cosmoo" },
+    { image: marketingDigital, brand: "Marketing Digital", label: "Visual de campanha", alt: "Visual de produto e campanha" },
+    { image: fortalezaExecutivo, brand: "Fortal Executivo", label: "Aplicação visual", alt: "Aplicação visual em produto" },
   ],
   marketing: [
-    { image: alucarCampaign, brand: "ALUCAR", label: "Conceito de campanha", alt: "Campanha ALUCAR com chave e automóvel" },
-    { image: cosmooCampaign, brand: "COS MOO", label: "Mensagem e posicionamento", alt: "Campanha COS MOO com escultura clássica" },
+    { image: cosmooCampaign, brand: "Cosmoo", label: "Conceito de campanha", alt: "Campanha Cosmoo" },
+    { image: cosmooPackaging, brand: "Cosmoo", label: "Produto com identidade", alt: "Campanha Cosmoo com produto" },
   ],
   "trafego-pago": [
-    { image: alucarCampaign, brand: "ALUCAR", label: "Criativo para aquisição", alt: "Criativo ALUCAR em azul para mídia digital" },
-    { image: phantomCampaign, brand: "PHANTOM BOX", label: "Variação para testes", alt: "Criativo Phantom Box para campanha digital" },
+    { image: dapCap, brand: "DAP", label: "Aplicação em produto", alt: "Aplicação visual em produto" },
+    { image: marketingDigital, brand: "Marketing Digital", label: "Criativo para aquisição", alt: "Criativo para campanha digital" },
   ],
 };
 
 export const homeVisuals = [
-  { image: cosmooCampaign, brand: "COS MOO", label: "Social media", alt: "Criativo COS MOO" },
-  { image: alucarCampaign, brand: "ALUCAR", label: "Campanha", alt: "Criativo ALUCAR" },
-  { image: cosmooPackaging, brand: "COS MOO", label: "Identidade", alt: "Embalagem COS MOO" },
-  { image: dapCap, brand: "DAP", label: "Aplicação", alt: "Boné com identidade DAP" },
+  { image: cosmooCampaign, brand: "Cosmoo", label: "Social media", alt: "Criativo Cosmoo" },
+  { image: cosmooPackaging, brand: "Cosmoo", label: "Produto", alt: "Produto Cosmoo" },
+  { image: cosmooLogo, brand: "Cosmoo", label: "Identidade", alt: "Logo Cosmoo" },
+  { image: dapCap, brand: "DAP", label: "Aplicação", alt: "Aplicação visual em produto" },
 ];
+
+export const solutionImages = {
+  posicionamento: [
+    { image: cosmooCampaign, brand: "Cosmoo", label: "Conceito de campanha", alt: "Post social media Cosmoo" },
+    { image: cosmooPackaging, brand: "Cosmoo", label: "Produto com identidade", alt: "Produto com identidade visual aplicada" },
+    { image: cosmooLogo, brand: "Cosmoo", label: "Identidade visual", alt: "Logo Cosmoo" },
+  ],
+  "landing-pages-sites": [
+    { image: site2, brand: "CRXW", label: "Site com direção visual", alt: "Mockup do site CRXW" },
+    { image: site1, brand: "Ana Rita Luna", label: "Site institucional", alt: "Mockup de site institucional para profissional de interiores" },
+    { image: site3, brand: "Centro Pedagógico", label: "Landing page", alt: "Mockup de landing page institucional" },
+  ],
+  criativos: [
+    { image: cosmooCampaign, brand: "Cosmoo", label: "Conceito de campanha", alt: "Post social media Cosmoo" },
+    { image: cosmooPackaging, brand: "Cosmoo", label: "Produto com identidade", alt: "Produto com identidade visual aplicada" },
+    { image: marketingDigital, brand: "Marketing Digital", label: "Visual de campanha", alt: "Visual de produto e campanha" },
+    { image: fortalezaExecutivo, brand: "Fortal Executivo", label: "Aplicação visual", alt: "Aplicação visual em produto" },
+  ],
+  "trafego-pago": [],
+};

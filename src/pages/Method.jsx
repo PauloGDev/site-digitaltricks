@@ -9,7 +9,7 @@ import { methodSteps } from "../data/siteData";
 
 const Method = () => (
   <>
-    <Seo title="Método" description="Entenda como a Digital Tricks define, aprova e produz a estrutura digital automotiva em 15 dias." path="/metodo" />
+    <Seo title="Método" description="Entenda como a Digital Tricks define, aprova e produz a estrutura digital em 15 dias." path="/metodo" />
     <PageHero eyebrow="Método Digital Tricks" title="Os 15 dias começam depois que a direção está aprovada." description="Diagnóstico, estratégia, escopo, materiais e acessos são resolvidos antes da contagem. O ciclo de produção começa com uma decisão clara sobre o que será construído.">
       <Link to="/diagnostico" className="home-button-dark mt-9 w-fit">Começar pelo diagnóstico <ArrowRight className="h-4 w-4" /></Link>
     </PageHero>
@@ -36,7 +36,7 @@ const Method = () => (
         {[
           [Clock3, "15 dias não são resultado", "O prazo corresponde à produção e ativação do escopo aprovado. Campanhas precisam de dados, atendimento e otimização para amadurecer."],
           [Layers3, "Complexidade muda o prazo", "Grandes catálogos, integrações, migrações e múltiplas unidades recebem cronograma próprio."],
-          [ShieldCheck, "Software tem implantação própria", "O sistema para concessionárias passa por diagnóstico técnico, configuração, importação, testes e treinamento."],
+          [ShieldCheck, "Software tem implantação própria", "O sistema de gestão passa por diagnóstico técnico, configuração, importação, testes e treinamento."],
         ].map(([Icon, title, description], index) => (
           <Reveal key={title} delay={index * 0.05}><article className="h-full min-h-[24rem] rounded-[1.6rem] border border-white/10 bg-white/[0.025] p-7"><Icon className="h-6 w-6 text-violet-300" /><h3 className="mt-16 text-2xl font-semibold tracking-[-0.035em]">{title}</h3><p className="mt-5 text-sm leading-7 text-white/50">{description}</p></article></Reveal>
         ))}

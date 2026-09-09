@@ -1,20 +1,20 @@
-import { ArrowRight, ArrowUpRight, CarFront, ShoppingBag, Wrench } from "lucide-react";
+import { ArrowRight, ArrowUpRight, Package, ShoppingBag, Wrench } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTASection from "../components/CTASection";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
-import { audiences } from "../data/automotiveData";
+import { audiences } from "../data/businessData";
 
-const icons = { oficinas: Wrench, concessionarias: CarFront, "lojas-automotivas": ShoppingBag };
+const icons = { servicos: Wrench, "com-estoque": Package, "lojas-e-marcas": ShoppingBag };
 
 const Audiences = () => (
   <>
-    <Seo title="Para seu negócio" description="Estrutura digital especializada para oficinas, concessionárias e lojas de produtos automotivos." path="/para-seu-negocio" />
+    <Seo title="Para seu negócio" description="Estrutura digital especializada para empresas, negócios e operações." path="/para-seu-negocio" />
     <PageHero
-      eyebrow="Mercado automotivo"
+      eyebrow="Mercado"
       title="Uma estrutura diferente para cada operação."
-      description="Oficinas vendem confiança técnica. Concessionárias precisam conectar estoque, leads e equipe. Lojas precisam transformar catálogo em marca e venda. A estratégia começa por essa diferença."
+      description="Empresas variadas vendem com diferentes propostas. Algumas precisam conectar estoque, leads e equipe. Outras precisam transformar catálogo em marca e venda. A estratégia começa por essa diferença."
     />
 
     <section className="section-space bg-white text-[#17151d]">
@@ -52,19 +52,19 @@ const Audiences = () => (
         <Reveal className="mt-16 rounded-[1.8rem] border border-black/[0.08] bg-[#f2eff8] p-7 sm:p-10 lg:p-12">
           <div className="grid gap-8 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-8">
-              <span className="home-eyebrow">Concessionárias</span>
+              <span className="home-eyebrow">Sistema de gestão</span>
               <h2 className="mt-5 text-3xl font-semibold tracking-[-0.045em] sm:text-5xl">Além da aquisição, uma operação conectada.</h2>
               <p className="mt-5 max-w-3xl text-base leading-8 text-[#66606c]">O sistema de gestão da Digital Tricks reúne WhatsApp, estoque, vendas, clientes, funcionários e indicadores para acompanhar a jornada depois que o lead chega.</p>
             </div>
             <div className="lg:col-span-4 lg:flex lg:justify-end">
-              <Link to="/sistema-concessionarias" className="home-button-dark">Conhecer o sistema <ArrowRight className="h-4 w-4" /></Link>
+              <Link to="/sistema-gestao" className="home-button-dark">Conhecer o sistema <ArrowRight className="h-4 w-4" /></Link>
             </div>
           </div>
         </Reveal>
       </div>
     </section>
 
-    <CTASection title="Qual é o próximo movimento do seu negócio automotivo?" description="Conte-nos como a operação funciona hoje para definirmos a estrutura digital adequada ao segmento, ao público e à capacidade comercial." />
+    <CTASection title="Qual é o próximo movimento do seu negócio?" description="Conte-nos como a operação funciona hoje para definirmos a estrutura digital adequada ao segmento, ao público e à capacidade comercial." />
   </>
 );
 

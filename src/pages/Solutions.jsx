@@ -10,8 +10,8 @@ const icons = { posicionamento: Crosshair, "landing-pages-sites": LayoutTemplate
 
 const Solutions = () => (
   <>
-    <Seo title="Soluções" description="Posicionamento, landing pages, sites, criativos e tráfego pago para negócios automotivos." path="/solucoes" />
-    <PageHero eyebrow="Soluções digitais" title="As frentes certas, conectadas ao mesmo objetivo." description="A Digital Tricks organiza percepção, páginas, campanhas e aquisição para que oficinas, concessionárias e lojas automotivas não dependam de ações isoladas." />
+    <Seo title="Soluções" description="Posicionamento, landing pages, sites, criativos e tráfego pago para empresas." path="/solucoes" />
+    <PageHero eyebrow="Soluções digitais" title="As frentes certas, conectadas ao mesmo objetivo." description="A Digital Tricks organiza percepção, páginas, campanhas e aquisição para empresas que não dependam de ações isoladas." />
     <section className="section-space bg-white text-[#17151d]">
       <div className="page-shell">
         <div className="grid gap-4 md:grid-cols-2">
@@ -33,10 +33,10 @@ const Solutions = () => (
     <section className="section-space bg-[#eae8ef] text-[#17151d]">
       <div className="page-shell grid gap-12 lg:grid-cols-12">
         <Reveal className="lg:col-span-5"><span className="home-eyebrow">Como combinamos</span><h2 className="mt-5 text-4xl font-semibold leading-[1] tracking-[-0.05em] sm:text-6xl">Nem todo cliente precisa começar por tudo.</h2></Reveal>
-        <Reveal delay={0.08} className="lg:col-span-7"><div className="space-y-5 text-base leading-8 text-[#625d69] sm:text-lg"><p>Uma oficina pode começar pela busca local e uma landing page. Uma concessionária pode priorizar estoque, campanha e sistema. Uma loja pode precisar primeiro de catálogo, produto e e-commerce.</p><p className="rounded-[1.5rem] bg-white p-7 font-medium text-[#302a37]">O diagnóstico define a combinação mínima capaz de resolver o problema atual sem criar uma coleção de entregas sem uso.</p></div></Reveal>
+        <Reveal delay={0.08} className="lg:col-span-7"><div className="space-y-5 text-base leading-8 text-[#625d69] sm:text-lg"><p>Uma empresa pode começar pela busca local e uma landing page. Outra pode priorizar estoque, campanha e sistema. Uma loja pode precisar primeiro de catálogo, produto e e-commerce.</p><p className="rounded-[1.5rem] bg-white p-7 font-medium text-[#302a37]">O diagnóstico define a combinação mínima capaz de resolver o problema atual sem criar uma coleção de entregas sem uso.</p></div></Reveal>
       </div>
     </section>
-    <CTASection title="Vamos escolher a estrutura certa para o seu negócio automotivo." />
+    <CTASection title="Vamos escolher a estrutura certa para o seu negócio." />
   </>
 );
 

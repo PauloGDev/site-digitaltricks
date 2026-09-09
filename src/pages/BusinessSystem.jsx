@@ -2,7 +2,6 @@ import {
   ArrowRight,
   BadgeCheck,
   Building2,
-  CarFront,
   ChartNoAxesCombined,
   Check,
   Handshake,
@@ -10,21 +9,22 @@ import {
   MessageCircle,
   ShieldCheck,
   Users,
+  Package,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import CTASection from "../components/CTASection";
-import DealershipDashboard from "../components/DealershipDashboard";
+import BusinessDashboard from "../components/BusinessDashboard";
 import FAQList from "../components/FAQList";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
-import { managementFlow, managementModules, systemFaqs } from "../data/automotiveData";
+import { managementFlow, managementModules, systemFaqs } from "../data/businessData";
 
-const icons = { MessageCircle, CarFront, Handshake, Users, BadgeCheck, ChartNoAxesCombined, Building2, History };
+const icons = { MessageCircle, Package, Handshake, Users, BadgeCheck, ChartNoAxesCombined, Building2, History };
 
-const DealershipSystem = () => (
+const BusinessSystem = () => (
   <>
-    <Seo title="Sistema para concessionárias" description="Sistema de gestão para concessionárias conectado a WhatsApp, estoque, clientes, vendas, funcionários e indicadores." path="/sistema-concessionarias" />
+    <Seo title="Sistema de Gestão Conectado" description="Sistema de gestão conectado para empresas, integrando comunicação, estoque, clientes, vendas, equipe e indicadores." path="/sistema-gestao" />
 
     <main className="overflow-hidden bg-[#f7f6f9] text-[#17151d]">
       <section className="relative overflow-hidden bg-[#111016] pb-16 pt-32 text-white sm:pb-24 sm:pt-36">
@@ -32,15 +32,15 @@ const DealershipSystem = () => (
         <div className="pointer-events-none absolute left-1/2 top-0 h-[34rem] w-[48rem] -translate-x-1/2 rounded-full bg-violet-600/25 blur-[140px]" />
         <div className="page-shell relative">
           <Reveal className="mx-auto max-w-5xl text-center">
-            <div className="flex justify-center"><span className="inline-flex items-center rounded-full border border-violet-300/20 bg-violet-400/10 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-200">Sistema para concessionárias</span></div>
+            <div className="flex justify-center"><span className="inline-flex items-center rounded-full border border-violet-300/20 bg-violet-400/10 px-4 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-200">Sistema para empresas</span></div>
             <h1 className="mt-7 text-balance text-5xl font-semibold leading-[0.93] tracking-[-0.065em] sm:text-7xl lg:text-[6rem]">Do primeiro contato à venda, <span className="text-violet-300">tudo na mesma operação.</span></h1>
-            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-white/60 sm:text-lg">WhatsApp, estoque, clientes, propostas, vendas, funcionários e indicadores conectados para a concessionária enxergar o caminho completo de cada oportunidade.</p>
+            <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-white/60 sm:text-lg">WhatsApp, estoque, clientes, propostas, vendas, funcionários e indicadores conectados para a empresa enxergar o caminho completo de cada oportunidade.</p>
             <div className="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
               <Link to="/diagnostico?interesse=sistema" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-[#17151d]">Solicitar demonstração <ArrowRight className="h-4 w-4" /></Link>
               <a href="#modulos" className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/20 bg-white/[0.04] px-6 py-3 text-sm font-semibold text-white">Ver módulos</a>
             </div>
           </Reveal>
-          <Reveal delay={0.08} className="mx-auto mt-14 max-w-7xl"><DealershipDashboard /></Reveal>
+          <Reveal delay={0.08} className="mx-auto mt-14 max-w-7xl"><BusinessDashboard /></Reveal>
         </div>
       </section>
 
@@ -50,7 +50,7 @@ const DealershipSystem = () => (
           <div className="grid gap-3 sm:grid-cols-2 lg:col-span-7">
             {[
               "Conversas presas no WhatsApp de cada vendedor",
-              "Veículos publicados com dados diferentes",
+              "Produtos publicados com dados divergentes",
               "Follow-ups que dependem da memória da equipe",
               "Gestores sem visão do funil em tempo real",
               "Campanhas avaliadas somente pela quantidade de leads",
@@ -64,7 +64,7 @@ const DealershipSystem = () => (
 
       <section id="modulos" className="section-space bg-[#eae8ef]">
         <div className="page-shell">
-          <Reveal><SectionHeading eyebrow="Módulos conectados" title="Uma base única para movimentar a concessionária." description="O sistema acompanha a operação comercial sem separar cliente, veículo e atendimento em ferramentas que não se conversam." className="max-w-5xl" /></Reveal>
+          <Reveal><SectionHeading eyebrow="Módulos conectados" title="Uma base única para movimentar a empresa." description="O sistema acompanha a operação comercial sem separar cliente, produto e atendimento em ferramentas que não se conversam." className="max-w-5xl" /></Reveal>
           <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {managementModules.map((module, index) => {
               const Icon = icons[module.icon];
@@ -88,7 +88,7 @@ const DealershipSystem = () => (
         <div className="page-shell">
           <Reveal className="grid gap-10 lg:grid-cols-12 lg:items-end">
             <div className="lg:col-span-7"><SectionHeading eyebrow="Jornada conectada" title="O sistema acompanha o que a campanha começou." dark /></div>
-            <p className="max-w-xl text-base leading-8 text-white/50 lg:col-span-5">O marketing gera interesse. A operação registra atendimento, veículo, proposta e desfecho. Assim, a concessionária aprende com o caminho inteiro.</p>
+            <p className="max-w-xl text-base leading-8 text-white/50 lg:col-span-5">O marketing gera interesse. A operação registra atendimento, produto, proposta e desfecho. Assim, a empresa aprende com o caminho inteiro.</p>
           </Reveal>
           <div className="mt-14 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
             {managementFlow.map(([number, title, description], index) => (
@@ -127,14 +127,14 @@ const DealershipSystem = () => (
 
       <section className="section-space bg-[#f7f6f9]">
         <div className="page-shell grid gap-12 lg:grid-cols-12">
-          <Reveal className="lg:col-span-5"><SectionHeading eyebrow="Perguntas frequentes" title="Antes de conectar a operação." description="Escopo, prazo e integrações são definidos a partir da realidade de cada concessionária." /></Reveal>
+          <Reveal className="lg:col-span-5"><SectionHeading eyebrow="Perguntas frequentes" title="Antes de conectar a operação." description="Escopo, prazo e integrações são definidos a partir da realidade de cada empresa." /></Reveal>
           <div className="lg:col-span-7"><FAQList items={systemFaqs} /></div>
         </div>
       </section>
 
-      <CTASection eyebrow="Demonstração" title="Veja como a operação pode trabalhar conectada." description="Apresente o cenário da concessionária para avaliarmos unidades, estoque, usuários, WhatsApp e integrações necessárias." />
+      <CTASection eyebrow="Demonstração" title="Veja como a operação pode trabalhar conectada." description="Apresente o cenário da empresa para avaliarmos unidades, estoque, usuários, WhatsApp e integrações necessárias." />
     </main>
   </>
 );
 
-export default DealershipSystem;
+export default BusinessSystem;

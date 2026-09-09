@@ -1,7 +1,7 @@
 export const contact = {
   whatsapp: "5585921743200",
   whatsappUrl:
-    "https://wa.me/5585921743200?text=Olá!%20Quero%20estruturar%20o%20digital%20do%20meu%20negócio%20automotivo%20com%20a%20Digital%20Tricks.",
+    "https://wa.me/5585921743200?text=Olá!%20Quero%20estruturar%20o%20digital%20do%20meu%20negócio%20com%20a%20Digital%20Tricks.",
   email: "contato@digitaltricks.com.br",
   instagram: "https://www.instagram.com/digitaltricks.web/",
   facebook: "https://www.facebook.com/profile.php?id=61566596216125",
@@ -11,7 +11,7 @@ export const navigation = [
   { label: "Início", href: "/" },
   { label: "Para seu negócio", href: "/para-seu-negocio", hasDropdown: true },
   { label: "Soluções", href: "/solucoes", hasDropdown: true },
-  { label: "Sistema", href: "/sistema-concessionarias" },
+  { label: "Sistema", href: "/sistema-gestao" },
   { label: "Método", href: "/metodo" },
   { label: "Sobre", href: "/sobre" },
 ];
@@ -21,10 +21,10 @@ export const solutionPillars = [
     slug: "posicionamento",
     number: "01",
     icon: "Crosshair",
-    eyebrow: "Posicionamento automotivo",
+    eyebrow: "Posicionamento",
     title: "Uma mensagem clara para o mercado entender por que escolher você.",
     shortDescription:
-      "Oferta, diferenciais, público e jornada organizados para oficinas, concessionárias e lojas automotivas.",
+      "Oferta, diferenciais, público e jornada organizados para a sua empresa.",
     description:
       "Traduzimos a força da operação em uma proposta de valor reconhecível. Toda página, criativo e campanha passa a trabalhar a mesma percepção.",
     pains: [
@@ -59,7 +59,7 @@ export const solutionPillars = [
     ],
     faqs: [
       ["É necessário mudar a marca?", "Nem sempre. Primeiro avaliamos se a identidade atual sustenta o posicionamento. Ajustes são propostos somente quando ajudam a percepção do negócio."],
-      ["O posicionamento é diferente para cada segmento?", "Sim. Confiança técnica pesa mais para oficinas, giro e procedência para concessionárias, enquanto demonstração e diferenciação de produto são centrais para lojas."],
+      ["O posicionamento é diferente para cada segmento?", "Sim. Confiança técnica pesa mais para empresas de serviços, giro e procedência para empresas com estoque, enquanto demonstração e diferenciação de produto são centrais para lojas."],
       ["A estratégia entra nos 15 dias?", "A estratégia e o escopo são definidos e aprovados antes da contagem. Os 15 dias correspondem à produção da estrutura aprovada."],
     ],
   },
@@ -81,7 +81,7 @@ export const solutionPillars = [
       "A empresa depende somente de Instagram, portais ou marketplaces",
     ],
     outcomes: [
-      "Mais clareza sobre serviços, veículos e produtos",
+      "Mais clareza sobre serviços e produtos",
       "Jornadas específicas para cada campanha",
       "Conversão integrada a WhatsApp e formulários",
       "Mensuração de acessos e contatos",
@@ -107,7 +107,7 @@ export const solutionPillars = [
     ],
     faqs: [
       ["O site pode ficar pronto dentro dos 15 dias?", "Sim, quando faz parte do escopo aprovado e não exige integrações complexas. Conteúdos, acessos e direção precisam estar aprovados antes da contagem."],
-      ["É possível mostrar estoque de veículos?", "Sim. A solução pode usar páginas de campanha, uma vitrine administrável ou integração, conforme a operação e o escopo técnico."],
+      ["É possível mostrar estoque ou catálogo?", "Sim. A solução pode usar páginas de campanha, uma vitrine administrável ou integração, conforme a operação e o escopo técnico."],
       ["Vocês fazem e-commerce?", "Sim. Catálogo, página de produto e loja podem ser estruturados conforme quantidade de itens, meios de pagamento e logística."],
       ["O site funciona no celular?", "Sim. Toda interface é planejada e testada para celulares, onde acontece grande parte dos acessos e contatos."],
     ],
@@ -119,12 +119,12 @@ export const solutionPillars = [
     eyebrow: "Criativos",
     title: "Campanhas que dão forma ao serviço, ao estoque e ao produto.",
     shortDescription:
-      "Direção visual, peças e vídeos para aquisição, lançamento, oferta e autoridade no mercado automotivo.",
+      "Direção visual, peças e vídeos para aquisição, lançamento, oferta e autoridade.",
     description:
       "Criamos materiais que explicam, demonstram e valorizam. Cada formato nasce de um objetivo, não de um calendário de postagem genérico.",
     pains: [
       "Artes improvisadas reduzem a percepção de qualidade",
-      "Veículos e produtos são anunciados sempre do mesmo jeito",
+      "Produtos e serviços são anunciados sempre do mesmo jeito",
       "Faltam variações para testar campanhas",
       "O conteúdo não demonstra processo, acabamento ou benefício",
       "A marca muda de aparência a cada publicação",
@@ -143,7 +143,7 @@ export const solutionPillars = [
       "Edição de vídeos curtos",
       "Motion e animações",
       "Apresentações comerciais",
-      "Materiais de showroom e ponto de venda",
+      "Materiais de apresentação e ponto de venda",
       "Variações para testes",
       "Templates reutilizáveis",
     ],
@@ -205,7 +205,7 @@ export const solutionPillars = [
     faqs: [
       ["A verba está incluída?", "Não. O investimento é pago diretamente pelo cliente às plataformas e fica separado da gestão."],
       ["Vocês garantem vendas?", "Não. Estruturamos, medimos e otimizamos a aquisição. O resultado também depende da oferta, preço, estoque, atendimento e capacidade operacional do cliente."],
-      ["É possível saber qual lead virou venda?", "Sim, desde que a empresa registre e compartilhe o retorno comercial. Para concessionárias, o sistema de gestão pode centralizar essa jornada."],
+      ["É possível saber qual lead virou venda?", "Sim, desde que a empresa registre e compartilhe o retorno comercial. O sistema de gestão pode centralizar essa jornada."],
     ],
   },
 ];
@@ -228,11 +228,11 @@ export const companyProblems = [
 ];
 
 export const homeFaqs = [
-  ["A Digital Tricks atende somente o mercado automotivo?", "Este é o nosso posicionamento principal: oficinas, concessionárias e lojas de produtos automotivos. A especialização permite criar estratégias e estruturas mais próximas da operação real de cada cliente."],
+  ["A Digital Tricks atende somente empresas específicas?", "Nos especializamos em estruturas digitais e sistemas de gestão para empresas que precisam conectar percepção, aquisição e operação."],
   ["O que é entregue em 15 dias?", "A estrutura definida no escopo aprovado, que pode reunir posicionamento, landing page ou site, criativos, rastreamento e preparação das campanhas."],
   ["Quando começa a contagem?", "Após a aprovação da estratégia e do escopo, com todos os acessos e materiais necessários disponíveis. Diagnóstico e alinhamento acontecem antes."],
-  ["O sistema para concessionárias também é implantado em 15 dias?", "Não necessariamente. O software possui diagnóstico, configuração, migração e treinamento próprios. O prazo é definido conforme unidades, estoque, usuários e integrações."],
+  ["O sistema de gestão também é implantado em 15 dias?", "Não necessariamente. O software possui diagnóstico, configuração, migração e treinamento próprios. O prazo é definido conforme unidades, estoque, usuários e integrações."],
   ["É possível contratar apenas um serviço?", "Sim. Uma empresa pode começar por uma página, campanha ou frente específica, desde que a entrega esteja conectada a um objetivo claro."],
-  ["A Digital Tricks implanta CRM para oficinas e lojas?", "Não como serviço geral. O produto de gestão é voltado a concessionárias. Nos demais projetos, integramos os contatos aos canais e ferramentas já utilizados pelo cliente."],
+  ["A Digital Tricks implanta CRM para empresas?", "Não como serviço geral. O produto de gestão é voltado a empresas que precisam conectar comunicação, estoque, clientes, vendas e equipe. Nos demais projetos, integramos os contatos aos canais e ferramentas já utilizados pelo cliente."],
   ["O trabalho termina após a entrega inicial?", "A estrutura inicial pode evoluir para acompanhamento mensal de mídia, criativos, campanhas e otimização das páginas."],
 ];

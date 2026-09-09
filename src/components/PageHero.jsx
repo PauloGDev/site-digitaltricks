@@ -1,7 +1,9 @@
 import Reveal from "./Reveal";
-import heroVisual from "../assets/client-work/alucar-campaign.webp";
+import defaultHeroVisual from "../assets/Posts Social media/Cosmoo-Post Social Media.webp";
 
-const PageHero = ({ eyebrow, title, description, children }) => (
+const PageHero = ({ eyebrow, title, description, children, image: customImage }) => {
+  const heroVisual = customImage || defaultHeroVisual;
+  return (
   <section className="relative overflow-hidden bg-[#e9e7ef] pb-16 pt-28 text-[#17151d] sm:pb-24 sm:pt-32">
     <div className="dot-surface-light pointer-events-none absolute inset-0 opacity-70" />
     <div className="pointer-events-none absolute -left-32 top-12 h-80 w-80 rounded-full bg-violet-300/35 blur-[100px]" />
@@ -25,7 +27,7 @@ const PageHero = ({ eyebrow, title, description, children }) => (
         <Reveal delay={0.1} className="relative min-h-[25rem] lg:col-span-5 lg:min-h-full">
           <img
             src={heroVisual}
-            alt="Campanha visual desenvolvida para o mercado automotivo"
+            alt="Campanha visual desenvolvida para o cliente"
             className="absolute inset-0 h-full w-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#15121c]/80 via-transparent to-transparent" />
@@ -33,6 +35,7 @@ const PageHero = ({ eyebrow, title, description, children }) => (
       </div>
     </div>
   </section>
-);
+  );
+};
 
 export default PageHero;

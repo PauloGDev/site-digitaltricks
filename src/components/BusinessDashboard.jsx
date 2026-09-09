@@ -1,6 +1,6 @@
 import {
   Bell,
-  CarFront,
+  Package,
   ChevronRight,
   CircleDollarSign,
   Gauge,
@@ -11,16 +11,16 @@ import {
   Users,
 } from "lucide-react";
 
-const DealershipDashboard = ({ compact = false }) => (
+const BusinessDashboard = ({ compact = false }) => (
   <div className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-[#0c0b10] text-white shadow-[0_35px_100px_rgba(0,0,0,0.45)]">
     <div className="flex items-center justify-between border-b border-white/[0.08] px-4 py-3 sm:px-5">
       <div className="flex items-center gap-2.5">
         <span className="grid h-8 w-8 place-items-center rounded-lg bg-violet-600">
-          <CarFront className="h-4 w-4" />
+          <Package className="h-4 w-4" />
         </span>
         <div>
           <p className="text-[0.62rem] font-semibold uppercase tracking-[0.16em] text-white/35">Operação</p>
-          <p className="text-xs font-semibold">Painel da concessionária</p>
+          <p className="text-xs font-semibold">Painel da empresa</p>
         </div>
       </div>
       <div className="flex items-center gap-2">
@@ -34,7 +34,7 @@ const DealershipDashboard = ({ compact = false }) => (
         {[
           [LayoutDashboard, "Visão geral", true],
           [MessageCircle, "Atendimentos"],
-          [CarFront, "Estoque"],
+          [Package, "Estoque"],
           [CircleDollarSign, "Vendas"],
           [Users, "Clientes"],
           [Gauge, "Equipe"],
@@ -53,7 +53,7 @@ const DealershipDashboard = ({ compact = false }) => (
             <h3 className="mt-1 text-lg font-semibold tracking-[-0.03em] sm:text-xl">O que está acontecendo agora.</h3>
           </div>
           <div className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/[0.035] px-3 py-2 text-[0.62rem] text-white/35">
-            <Search className="h-3.5 w-3.5" /> Buscar cliente ou veículo
+            <Search className="h-3.5 w-3.5" /> Buscar cliente ou produto
           </div>
         </div>
 
@@ -99,9 +99,9 @@ const DealershipDashboard = ({ compact = false }) => (
             <p className="text-[0.56rem] uppercase tracking-[0.14em] text-white/35">Atendimentos recentes</p>
             <div className="mt-3 space-y-2">
               {[
-                ["Marina S.", "SUV híbrido", "WhatsApp"],
-                ["Carlos A.", "Avaliação de usado", "Site"],
-                ["Rafael M.", "Sedan premium", "Campanha"],
+                ["Marina S.", "Produto X", "WhatsApp"],
+                ["Carlos A.", "Avaliação comercial", "Site"],
+                ["Rafael M.", "Pedido B2B", "Campanha"],
               ].map(([name, interest, origin]) => (
                 <div key={name} className="flex items-center gap-2.5 rounded-lg bg-white/[0.035] p-2.5">
                   <span className="grid h-7 w-7 shrink-0 place-items-center rounded-full bg-violet-500/20 text-[0.55rem] font-semibold text-violet-200">{name.slice(0, 2).toUpperCase()}</span>
@@ -120,4 +120,4 @@ const DealershipDashboard = ({ compact = false }) => (
   </div>
 );
 
-export default DealershipDashboard;
+export default BusinessDashboard;
