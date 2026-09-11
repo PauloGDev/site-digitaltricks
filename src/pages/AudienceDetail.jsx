@@ -1,19 +1,20 @@
 import { ArrowRight, Check, CircleCheck, Gauge, MoveRight } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Error404 from './Error404';
 import CTASection from "../components/CTASection";
-import DealershipDashboard from "../components/DealershipDashboard";
+import BusinessDashboard from "../components/BusinessDashboard";
 import FAQList from "../components/FAQList";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
-import { audiences } from "../data/automotiveData";
+import { audiences } from "../data/businessData";
 
 const AudienceDetail = () => {
   const { slug } = useParams();
   const audience = audiences.find((item) => item.slug === slug);
-  if (!audience) return <Navigate to="/para-seu-negocio" replace />;
-  const isDealer = audience.slug === "concessionarias";
-  const singularName = audience.slug === "oficinas" ? "oficina" : audience.slug === "concessionarias" ? "concessionária" : "loja automotiva";
+  if (!audience) return <Error404 />;
+  const isStock = audience.slug === "com-estoque";
+  const singularName = audience.slug === "servicos" ? "empresa" : audience.slug === "com-estoque" ? "empresa" : "loja";
 
   return (
     <>
@@ -28,7 +29,7 @@ const AudienceDetail = () => {
               <p className="mt-7 max-w-3xl text-base leading-8 text-[#615c68] sm:text-lg">{audience.heroDescription}</p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link to="/diagnostico" className="home-button-dark">Solicitar diagnóstico <ArrowRight className="h-4 w-4" /></Link>
-                {isDealer && <Link to="/sistema-concessionarias" className="home-button-light">Conhecer o sistema</Link>}
+                {isStock && <Link to="/sistema-gestao" className="home-button-light">Conhecer o sistema</Link>}
               </div>
             </Reveal>
             <Reveal delay={0.08} className="relative min-h-[25rem] lg:col-span-5 lg:min-h-full">
@@ -74,16 +75,16 @@ const AudienceDetail = () => {
         </div>
       </section>
 
-      {isDealer && (
+      {isStock && (
         <section className="section-space overflow-hidden bg-violet-600 text-white">
           <div className="page-shell grid gap-12 lg:grid-cols-12 lg:items-center">
             <Reveal className="lg:col-span-5">
               <span className="text-[0.67rem] font-semibold uppercase tracking-[0.22em] text-violet-100">Sistema de gestão</span>
               <h2 className="mt-5 text-balance text-4xl font-semibold leading-[0.98] tracking-[-0.055em] sm:text-6xl">O marketing mostra de onde veio. O sistema acompanha até onde chegou.</h2>
-              <p className="mt-6 max-w-xl text-base leading-8 text-violet-100/75">WhatsApp, estoque, clientes, propostas, vendas e equipe conectados para reduzir a perda de contexto entre anúncio e showroom.</p>
-              <Link to="/sistema-concessionarias" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-violet-700">Explorar o sistema <ArrowRight className="h-4 w-4" /></Link>
+              <p className="mt-6 max-w-xl text-base leading-8 text-violet-100/75">WhatsApp, estoque, clientes, propostas, vendas e equipe conectados para reduzir a perda de contexto entre anúncio e conversão.</p>
+              <Link to="/sistema-gestao" className="mt-8 inline-flex min-h-12 items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-violet-700">Explorar o sistema <ArrowRight className="h-4 w-4" /></Link>
             </Reveal>
-            <Reveal delay={0.08} className="lg:col-span-7"><DealershipDashboard compact /></Reveal>
+            <Reveal delay={0.08} className="lg:col-span-7"><BusinessDashboard compact /></Reveal>
           </div>
         </section>
       )}

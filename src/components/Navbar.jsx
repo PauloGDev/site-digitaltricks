@@ -3,7 +3,7 @@ import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { audiences } from "../data/automotiveData";
+import { audiences } from "../data/businessData";
 import { navigation, solutionPillars } from "../data/siteData";
 
 const Navbar = () => {

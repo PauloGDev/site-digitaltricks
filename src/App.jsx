@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./context/ScrollToTop";
@@ -10,7 +9,7 @@ const Solutions = lazy(() => import("./pages/Solutions"));
 const SolutionDetail = lazy(() => import("./pages/SolutionDetail"));
 const Audiences = lazy(() => import("./pages/Audiences"));
 const AudienceDetail = lazy(() => import("./pages/AudienceDetail"));
-const DealershipSystem = lazy(() => import("./pages/DealershipSystem"));
+const BusinessSystem = lazy(() => import("./pages/BusinessSystem"));
 const Method = lazy(() => import("./pages/Method"));
 const About = lazy(() => import("./pages/About"));
 const Diagnosis = lazy(() => import("./pages/Diagnosis"));
@@ -36,7 +35,6 @@ const App = () => {
     <div className="min-h-screen bg-black text-white">
       {!immersiveRoute && <Navbar />}
       <ScrollToTop />
-      <ToastContainer theme="dark" position="bottom-right" />
 
       <Suspense fallback={<RouteFallback />}>
         <Routes>
@@ -45,7 +43,7 @@ const App = () => {
           <Route path="/solucoes/:slug" element={<SolutionDetail />} />
           <Route path="/para-seu-negocio" element={<Audiences />} />
           <Route path="/para-seu-negocio/:slug" element={<AudienceDetail />} />
-          <Route path="/sistema-concessionarias" element={<DealershipSystem />} />
+          <Route path="/sistema-gestao" element={<BusinessSystem />} />
           <Route path="/metodo" element={<Method />} />
           <Route path="/projetos" element={<Navigate to="/" replace />} />
           <Route path="/sobre" element={<About />} />

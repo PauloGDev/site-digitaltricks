@@ -1,24 +1,53 @@
 import { ArrowRight, Check, CircleCheck } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Error404 from './Error404';
 import CTASection from "../components/CTASection";
 import FAQList from "../components/FAQList";
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SectionHeading from "../components/SectionHeading";
 import Seo from "../components/Seo";
+import TrafficChartsSection from "../components/TrafficChartsSection";
 import { solutionPillars } from "../data/siteData";
+import { solutionImages } from "../data/clientVisuals";
 
 const SolutionDetail = () => {
   const { slug } = useParams();
   const solution = solutionPillars.find((item) => item.slug === slug);
-  if (!solution) return <Navigate to="/solucoes" replace />;
+  if (!solution) return <Error404 />;
 
   return (
     <>
       <Seo title={solution.eyebrow} description={solution.shortDescription} path={`/solucoes/${solution.slug}`} />
-      <PageHero eyebrow={`${solution.number} — ${solution.eyebrow}`} title={solution.title} description={solution.description}>
+      <PageHero eyebrow={`${solution.number} — ${solution.eyebrow}`} title={solution.title} description={solution.description} image={solutionImages[solution.slug]?.[0]?.image}>
         <Link to="/diagnostico" className="home-button-dark mt-9 w-fit">Solicitar diagnóstico <ArrowRight className="h-4 w-4" /></Link>
       </PageHero>
+
+      {solution.slug === "trafego-pago" ? (
+        <TrafficChartsSection slug={solution.slug} />
+      ) : (
+        <section className="section-space bg-white text-[#17151d]">
+          <div className="page-shell">
+            <Reveal className="max-w-4xl"><SectionHeading eyebrow="Referência visual" title="Exemplos de aplicação desta frente." description="Materiais e estruturas que ilustram como esta solução se aplica no dia a dia." /></Reveal>
+            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {solutionImages[solution.slug]?.map((item, index) => (
+                <Reveal key={item.image} delay={index * 0.05}>
+                  <figure className="group relative overflow-hidden rounded-2xl shadow-[0_20px_60px_rgba(38,29,63,0.12)]">
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img src={item.image} alt={item.alt} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.05]" />
+                    </div>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                    <figcaption className="absolute bottom-0 p-4 text-white">
+                      <span className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-200">{item.brand}</span>
+                      <p className="mt-1 text-sm font-semibold">{item.label}</p>
+                    </figcaption>
+                  </figure>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section-space bg-white text-[#17151d]">
         <div className="page-shell grid gap-12 lg:grid-cols-12">

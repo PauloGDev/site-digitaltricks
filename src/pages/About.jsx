@@ -8,15 +8,15 @@ import Seo from "../components/Seo";
 
 const About = () => (
   <>
-    <Seo title="Sobre" description="A Digital Tricks estrutura aquisição, presença e operação digital para negócios automotivos." path="/sobre" />
-    <PageHero eyebrow="Sobre a Digital Tricks" title="Especialização para entender antes de executar." description="Atendemos oficinas, concessionárias e lojas automotivas porque estratégia digital só funciona quando respeita a operação que existe por trás da tela.">
+    <Seo title="Sobre" description="A Digital Tricks estrutura aquisição, presença e operação digital para empresas e negócios." path="/sobre" />
+    <PageHero eyebrow="Sobre a Digital Tricks" title="Especialização para entender antes de executar." description="Atendemos empresas, negócios variados e operações especializadas porque estratégia digital só funciona quando respeita a operação que existe por trás da tela.">
       <Link to="/para-seu-negocio" className="home-button-dark mt-9 w-fit">Ver quem atendemos <ArrowRight className="h-4 w-4" /></Link>
     </PageHero>
 
     <section className="section-space bg-white text-[#17151d]">
       <div className="page-shell grid gap-14 lg:grid-cols-12">
         <Reveal className="lg:col-span-5"><SectionHeading eyebrow="Nossa função" title="Conectar percepção, aquisição e operação." /></Reveal>
-        <Reveal delay={0.08} className="lg:col-span-7"><div className="space-y-7 text-lg leading-9 text-[#625d69]"><p>Uma empresa automotiva pode ter boa equipe, estoque e produto, mas perder oportunidades quando aparece de forma genérica, anuncia sem página adequada ou atende sem histórico.</p><p>A Digital Tricks organiza a camada digital dessa operação: define o posicionamento, constrói páginas, produz campanhas e estrutura aquisição.</p><p className="rounded-[1.5rem] bg-[#f2effa] p-7 font-medium text-[#302a37]">Para concessionárias, avançamos também sobre a operação com um sistema que conecta WhatsApp, estoque, clientes, vendas, funcionários e indicadores.</p></div></Reveal>
+        <Reveal delay={0.08} className="lg:col-span-7"><div className="space-y-7 text-lg leading-9 text-[#625d69]"><p>Uma empresa pode ter boa equipe, estoque e produto, mas perder oportunidades quando aparece de forma genérica, anuncia sem página adequada ou atende sem histórico.</p><p>A Digital Tricks organiza a camada digital dessa operação: define o posicionamento, constrói páginas, produz campanhas e estrutura aquisição.</p><p className="rounded-[1.5rem] bg-[#f2effa] p-7 font-medium text-[#302a37]">Para empresas com operação complexa, avançamos também sobre a gestão com um sistema que conecta WhatsApp, estoque, clientes, vendas, funcionários e indicadores.</p></div></Reveal>
       </div>
     </section>
 
@@ -33,7 +33,7 @@ const About = () => (
         </div>
       </div>
     </section>
-    <CTASection title="Seu negócio automotivo precisa de uma direção própria." />
+    <CTASection title="Seu negócio precisa de uma direção própria." />
   </>
 );
 

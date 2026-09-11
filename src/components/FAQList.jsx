@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Plus } from "lucide-react";
 import Reveal from "./Reveal";
 
@@ -18,5 +19,9 @@ const FAQList = ({ items }) => (
     ))}
   </div>
 );
+
+FAQList.propTypes = {
+  items: PropTypes.arrayOf(PropTypes.arrayOf(PropTypes.string)).isRequired,
+};
 
 export default FAQList;

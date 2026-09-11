@@ -1,7 +1,7 @@
 import { ArrowUpRight, Facebook, Instagram, Mail, Phone } from "lucide-react";
 import { Link } from "react-router-dom";
 import logo from "../assets/logo.png";
-import { audiences } from "../data/automotiveData";
+import { audiences } from "../data/businessData";
 import { contact, solutionPillars } from "../data/siteData";
 
 const Footer = () => (
@@ -10,14 +10,14 @@ const Footer = () => (
       <div className="grid gap-12 border-b border-white/10 py-16 lg:grid-cols-12 lg:py-20">
         <div className="lg:col-span-5">
           <img src={logo} alt="Digital Tricks" className="h-12 w-auto" />
-          <p className="mt-6 max-w-md text-base leading-8 text-white/[0.48]">Estrutura digital para oficinas, concessionárias e lojas de produtos automotivos. Sistema de gestão conectado para concessionárias.</p>
+          <p className="mt-6 max-w-md text-base leading-8 text-white/[0.48]">Estrutura digital para empresas e negócios. Sistema de gestão conectado para empresas.</p>
           <Link to="/diagnostico" className="mt-8 inline-flex items-center gap-2 text-sm font-medium text-violet-300 hover:text-violet-200">Solicitar diagnóstico <ArrowUpRight className="h-4 w-4" /></Link>
         </div>
 
         <div className="grid gap-10 sm:grid-cols-2 lg:col-span-7 lg:grid-cols-4">
           <div>
             <span className="footer-label">Para seu negócio</span>
-            <ul className="mt-5 space-y-3 text-sm text-white/[0.52]">{audiences.map((item) => <li key={item.slug}><Link to={`/para-seu-negocio/${item.slug}`} className="hover:text-white">{item.name}</Link></li>)}<li><Link to="/sistema-concessionarias" className="hover:text-white">Sistema de gestão</Link></li></ul>
+            <ul className="mt-5 space-y-3 text-sm text-white/[0.52]">{audiences.map((item) => <li key={item.slug}><Link to={`/para-seu-negocio/${item.slug}`} className="hover:text-white">{item.name}</Link></li>)}<li><Link to="/sistema-gestao" className="hover:text-white">Sistema de gestão</Link></li></ul>
           </div>
           <div>
             <span className="footer-label">Soluções</span>

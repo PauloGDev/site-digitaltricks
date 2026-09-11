@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { motion, useReducedMotion } from "framer-motion";
 
 const Reveal = ({ children, className = "", delay = 0, y = 24 }) => {
@@ -14,6 +15,13 @@ const Reveal = ({ children, className = "", delay = 0, y = 24 }) => {
       {children}
     </motion.div>
   );
+};
+
+Reveal.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  delay: PropTypes.number,
+  y: PropTypes.number,
 };
 
 export default Reveal;

@@ -1,48 +1,34 @@
-import { useEffect } from "react";
+import { useEffect } from 'react';
+import PropTypes from 'prop-types';
+import { getSeo, siteImage, siteName } from '../data/seoData.js';
 
-const SITE_NAME = "Digital Tricks";
-const BASE_URL = "https://digitaltricks.com.br";
-const DEFAULT_IMAGE = `${BASE_URL}/favicon.png`;
-
-const setMeta = (selector, attribute, value) => {
-  let element = document.head.querySelector(selector);
-
+const setMeta = (attribute, key, value) => {
+  let element = document.head.querySelector(`meta[${attribute}="${key}"]`);
   if (!element) {
-    element = document.createElement("meta");
-    const [key, keyValue] = attribute;
-    element.setAttribute(key, keyValue);
+    element = document.createElement('meta');
+    element.setAttribute(attribute, key);
     document.head.appendChild(element);
   }
-
-  element.setAttribute("content", value);
+  element.setAttribute('content', value);
 };
 
-const Seo = ({ title, description, path = "/" }) => {
+const Seo = ({ title, description, path = '/', noindex = false }) => {
   useEffect(() => {
-    const fullTitle = title ? `${title} | ${SITE_NAME}` : `${SITE_NAME} | Digital para o mercado automotivo`;
-    const canonical = `${BASE_URL}${path === "/" ? "" : path}`;
-
-    document.title = fullTitle;
-    document.documentElement.lang = "pt-BR";
-
-    setMeta('meta[name="description"]', ["name", "description"], description);
-    setMeta('meta[property="og:title"]', ["property", "og:title"], fullTitle);
-    setMeta('meta[property="og:description"]', ["property", "og:description"], description);
-    setMeta('meta[property="og:type"]', ["property", "og:type"], "website");
-    setMeta('meta[property="og:url"]', ["property", "og:url"], canonical);
-    setMeta('meta[property="og:image"]', ["property", "og:image"], DEFAULT_IMAGE);
-    setMeta('meta[name="twitter:card"]', ["name", "twitter:card"], "summary_large_image");
-
+    const seo = getSeo(path, { title, description, noindex });
+    document.title = seo.title;
+    document.documentElement.lang = 'pt-BR';
+    for (const [key, value] of Object.entries({ description: seo.description, robots: noindex ? 'noindex, follow' : seo.robots, 'twitter:card': 'summary', 'twitter:title': seo.title, 'twitter:description': seo.description, 'twitter:image': siteImage, 'twitter:image:alt': `Logo da ${siteName}` })) setMeta('name', key, value);
+    for (const [key, value] of Object.entries({ title: seo.title, description: seo.description, type: 'website', url: seo.canonical, image: siteImage, 'image:alt': `Logo da ${siteName}`, site_name: siteName, locale: 'pt_BR' })) setMeta('property', `og:${key}`, value);
     let link = document.head.querySelector('link[rel="canonical"]');
     if (!link) {
-      link = document.createElement("link");
-      link.setAttribute("rel", "canonical");
+      link = document.createElement('link');
+      link.rel = 'canonical';
       document.head.appendChild(link);
     }
-    link.setAttribute("href", canonical);
-  }, [title, description, path]);
-
+    link.href = seo.canonical;
+  }, [title, description, path, noindex]);
   return null;
 };
 
+Seo.propTypes = { title: PropTypes.string, description: PropTypes.string, path: PropTypes.string, noindex: PropTypes.bool };
 export default Seo;
