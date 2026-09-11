@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 const SectionHeading = ({
   eyebrow,
   title,
@@ -27,5 +28,14 @@ const SectionHeading = ({
     )}
   </div>
 );
+
+SectionHeading.propTypes = {
+  eyebrow: PropTypes.string,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.string,
+  align: PropTypes.oneOf(['left', 'center']),
+  className: PropTypes.string,
+  dark: PropTypes.bool,
+};
 
 export default SectionHeading;

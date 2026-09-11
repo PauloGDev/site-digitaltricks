@@ -1,5 +1,6 @@
 import { ArrowRight, Check, CircleCheck } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Error404 from './Error404';
 import CTASection from "../components/CTASection";
 import FAQList from "../components/FAQList";
 import PageHero from "../components/PageHero";
@@ -13,7 +14,7 @@ import { solutionImages } from "../data/clientVisuals";
 const SolutionDetail = () => {
   const { slug } = useParams();
   const solution = solutionPillars.find((item) => item.slug === slug);
-  if (!solution) return <Navigate to="/solucoes" replace />;
+  if (!solution) return <Error404 />;
 
   return (
     <>

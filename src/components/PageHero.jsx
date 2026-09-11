@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import Reveal from "./Reveal";
 import defaultHeroVisual from "../assets/Posts Social media/Cosmoo-Post Social Media.webp";
 
@@ -36,6 +37,14 @@ const PageHero = ({ eyebrow, title, description, children, image: customImage })
     </div>
   </section>
   );
+};
+
+PageHero.propTypes = {
+  eyebrow: PropTypes.string,
+  title: PropTypes.node.isRequired,
+  description: PropTypes.string,
+  children: PropTypes.node,
+  image: PropTypes.string,
 };
 
 export default PageHero;

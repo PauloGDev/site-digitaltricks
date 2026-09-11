@@ -1,6 +1,5 @@
 import { lazy, Suspense } from "react";
 import { Navigate, Route, Routes, useLocation } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./context/ScrollToTop";
@@ -36,7 +35,6 @@ const App = () => {
     <div className="min-h-screen bg-black text-white">
       {!immersiveRoute && <Navbar />}
       <ScrollToTop />
-      <ToastContainer theme="dark" position="bottom-right" />
 
       <Suspense fallback={<RouteFallback />}>
         <Routes>

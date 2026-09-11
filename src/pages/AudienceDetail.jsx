@@ -1,5 +1,6 @@
 import { ArrowRight, Check, CircleCheck, Gauge, MoveRight } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
+import Error404 from './Error404';
 import CTASection from "../components/CTASection";
 import BusinessDashboard from "../components/BusinessDashboard";
 import FAQList from "../components/FAQList";
@@ -11,7 +12,7 @@ import { audiences } from "../data/businessData";
 const AudienceDetail = () => {
   const { slug } = useParams();
   const audience = audiences.find((item) => item.slug === slug);
-  if (!audience) return <Navigate to="/para-seu-negocio" replace />;
+  if (!audience) return <Error404 />;
   const isStock = audience.slug === "com-estoque";
   const singularName = audience.slug === "servicos" ? "empresa" : audience.slug === "com-estoque" ? "empresa" : "loja";
 

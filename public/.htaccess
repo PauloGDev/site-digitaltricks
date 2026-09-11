@@ -1,10 +1,14 @@
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
-  RewriteRule ^index\.html$ - [L]
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  # SEO_ROUTES
+  RewriteRule ^(?:index|404)\.html$ - [END]
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [END]
+  RewriteRule ^$ index.html [END]
+  RewriteRule ^ - [R=404,L]
 </IfModule>
 
 <IfModule mod_deflate.c>

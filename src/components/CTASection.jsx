@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
@@ -37,5 +38,11 @@ const CTASection = ({
     </div>
   </section>
 );
+
+CTASection.propTypes = {
+  eyebrow: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+};
 
 export default CTASection;

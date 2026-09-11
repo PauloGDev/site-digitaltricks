@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import Reveal from "./Reveal";
@@ -316,3 +317,13 @@ const TrafficChartsSection = ({ slug }) => {
 };
 
 export default TrafficChartsSection;
+
+const seriesType = PropTypes.arrayOf(PropTypes.shape({ name: PropTypes.string, values: PropTypes.arrayOf(PropTypes.number).isRequired }));
+const chartDataType = PropTypes.shape({ labels: PropTypes.arrayOf(PropTypes.string).isRequired, series: PropTypes.oneOfType([seriesType, PropTypes.arrayOf(PropTypes.number)]).isRequired });
+const chartProps = { data: chartDataType.isRequired, title: PropTypes.string.isRequired, description: PropTypes.string, index: PropTypes.number.isRequired };
+BarChart.propTypes = chartProps;
+LineChart.propTypes = chartProps;
+PieChart.propTypes = chartProps;
+ChartRenderer.propTypes = { chart: PropTypes.shape({ type: PropTypes.oneOf(['bar', 'line', 'pie']).isRequired, data: chartDataType.isRequired, title: PropTypes.string.isRequired, description: PropTypes.string }).isRequired, index: PropTypes.number.isRequired };
+BeforeAfterCard.propTypes = { label: PropTypes.string.isRequired, delay: PropTypes.number, data: PropTypes.shape({ spend: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), leads: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), conversionRate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]), cpl: PropTypes.oneOfType([PropTypes.string, PropTypes.number]) }).isRequired };
+TrafficChartsSection.propTypes = { slug: PropTypes.string.isRequired };

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import {
   Bell,
   Package,
@@ -119,5 +120,9 @@ const BusinessDashboard = ({ compact = false }) => (
     </div>
   </div>
 );
+
+BusinessDashboard.propTypes = {
+  compact: PropTypes.bool,
+};
 
 export default BusinessDashboard;

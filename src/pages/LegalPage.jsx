@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import Seo from "../components/Seo";
@@ -76,6 +77,10 @@ const LegalPage = ({ type }) => {
       </section>
     </>
   );
+};
+
+LegalPage.propTypes = {
+  type: PropTypes.oneOf(['privacidade', 'cookies', 'termos']).isRequired,
 };
 
 export default LegalPage;

@@ -5,21 +5,18 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build": "vite build && node scripts/generate-seo.mjs",
+    "lint": "eslint . --max-warnings 0",
+    "preview": "vite preview",
+    "test": "node --test scripts/*.test.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.23.22",
     "lucide-react": "^0.545.0",
+    "prop-types": "^15.8.1",
     "react": "^18.3.1",
-    "react-countup": "^6.5.3",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^6.28.0",
-    "react-toastify": "^11.0.2",
-    "swiper": "^12.0.2",
-    "swiper-react": "^1.0.0",
-    "three": "^0.184.0"
+    "react-router-dom": "^6.28.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

@@ -87,28 +87,56 @@ const Home = () => (
         </div>
       </section>
 
-      <section className="bg-white py-20 sm:py-28">
-        <div className="page-shell grid gap-5 lg:grid-cols-12 lg:auto-rows-[18rem]">
-          <Reveal className="lg:col-span-7 lg:row-span-2">
-            <article className="relative h-full min-h-[38rem] overflow-hidden rounded-[1.8rem] bg-[#17151d] text-white">
-              <img src={campaignImg} alt="Campanha de cliente" className="absolute inset-0 h-full w-full object-cover opacity-85" />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#15121c] via-black/10 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-10">
-                <span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-violet-200">Do improviso à estrutura</span>
-                <h2 className="mt-4 max-w-3xl text-4xl font-semibold leading-[0.98] tracking-[-0.05em] sm:text-6xl">O negócio já está operando. O digital precisa acompanhar.</h2>
-              </div>
-            </article>
+      <section aria-labelledby="structure-heading" className="bg-white py-20 sm:py-28">
+        <div className="page-shell">
+          <Reveal className="mb-10 max-w-5xl sm:mb-14">
+            <span className="home-eyebrow">Do improviso à estrutura</span>
+            <h2 id="structure-heading" className="mt-5 text-balance text-4xl font-semibold leading-[1.06] tracking-[-0.05em] sm:text-5xl lg:text-6xl">
+              O negócio já está operando. <span className="text-violet-600">O digital precisa acompanhar.</span>
+            </h2>
           </Reveal>
-          <Reveal delay={0.05} className="lg:col-span-5">
-            <article className="h-full rounded-[1.8rem] bg-[#e9e3ff] p-7 sm:p-9">
-              <div className="flex flex-col gap-0.5"><span className="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-violet-700">Sinais do problema</span><span className="text-[0.58rem] font-semibold uppercase tracking-[0.13em] text-violet-600">Diagnóstico</span></div>
-              <div className="mt-6 space-y-2">
-                {companyProblems.slice(0, 4).map((problem, index) => <div key={problem} className="rounded-xl border border-violet-300/50 bg-white/60 p-3.5"><span className="text-[0.58rem] font-semibold text-violet-700">0{index + 1}</span><p className="mt-1 text-xs font-medium leading-5">{problem}</p></div>)}
-              </div>
-            </article>
-          </Reveal>
-          <Reveal delay={0.1} className="lg:col-span-2"><article className="flex h-full min-h-56 flex-col justify-between rounded-[1.8rem] bg-violet-600 p-7 text-white"><span className="text-6xl font-semibold tracking-[-0.07em]">15</span><p className="text-sm font-medium leading-6 text-violet-50">dias de produção após estratégia, escopo, materiais e acessos aprovados.</p></article></Reveal>
-          <Reveal delay={0.14} className="lg:col-span-3"><article className="flex h-full min-h-56 flex-col justify-between rounded-[1.8rem] bg-[#17151d] p-7 text-white"><span className="text-[0.62rem] font-semibold uppercase tracking-[0.18em] text-violet-300">Uma direção</span><p className="text-xl font-semibold leading-7">Página, campanha e atendimento trabalhando para o mesmo objetivo.</p></article></Reveal>
+
+          <div className="grid gap-5 lg:grid-cols-2 lg:items-stretch">
+            <Reveal className="min-w-0">
+              <figure className="relative h-full min-h-80 overflow-hidden rounded-[1.8rem] bg-[#17151d] sm:min-h-[26rem]">
+                <img src={campaignImg} alt="Campanha visual desenvolvida para a Cosmoo" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#17151d]/70 via-transparent to-transparent" />
+                <figcaption className="absolute bottom-6 left-6 rounded-full border border-white/25 bg-black/25 px-4 py-2 text-xs font-medium text-white backdrop-blur-md sm:bottom-8 sm:left-8">Marca com presença. Comunicação com intenção.</figcaption>
+              </figure>
+            </Reveal>
+
+            <Reveal delay={0.05} className="min-w-0">
+              <article className="h-full rounded-[1.8rem] border border-violet-200/60 bg-[#f3efff] p-6 sm:p-8 lg:p-10">
+                <div className="flex flex-wrap items-center justify-between gap-3">
+                  <h3 className="text-xl font-semibold tracking-[-0.03em] sm:text-2xl">Sinais do problema</h3>
+                  <span className="rounded-full border border-violet-200 bg-white/70 px-3 py-1.5 text-[0.6rem] font-semibold uppercase tracking-[0.14em] text-violet-700">Diagnóstico</span>
+                </div>
+                <ol className="mt-6 divide-y divide-violet-200/70">
+                  {companyProblems.slice(0, 4).map((problem, index) => (
+                    <li key={problem} className="flex items-start gap-4 py-5 sm:gap-5">
+                      <span aria-hidden="true" className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white text-xs font-semibold tabular-nums text-violet-700">0{index + 1}</span>
+                      <p className="pt-1 text-sm font-medium leading-6 text-[#51485f] sm:text-base sm:leading-7">{problem}</p>
+                    </li>
+                  ))}
+                </ol>
+              </article>
+            </Reveal>
+          </div>
+
+          <div className="mt-5 grid gap-5 md:grid-cols-2">
+            <Reveal delay={0.1}>
+              <article className="flex h-full flex-col gap-5 rounded-[1.8rem] bg-violet-600 p-7 text-white sm:flex-row sm:items-center sm:gap-7 sm:p-9">
+                <div className="shrink-0"><span className="block text-7xl font-semibold leading-none tracking-[-0.07em] sm:text-8xl">15</span><span className="mt-2 block text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">dias de produção</span></div>
+                <p className="max-w-sm text-sm leading-7 text-violet-50 sm:border-l sm:border-white/25 sm:pl-7">Após estratégia, escopo, materiais e acessos aprovados.</p>
+              </article>
+            </Reveal>
+            <Reveal delay={0.14}>
+              <article className="flex h-full flex-col justify-center rounded-[1.8rem] bg-[#17151d] p-7 text-white sm:p-9">
+                <div className="flex items-center gap-3"><span className="h-2 w-2 rounded-full bg-violet-400" aria-hidden="true" /><h3 className="text-[0.65rem] font-semibold uppercase tracking-[0.18em] text-violet-300">Uma direção</h3></div>
+                <p className="mt-5 max-w-xl text-xl font-semibold leading-8 tracking-[-0.025em] sm:text-2xl">Página, campanha e atendimento trabalhando para o mesmo objetivo.</p>
+              </article>
+            </Reveal>
+          </div>
         </div>
       </section>
 
